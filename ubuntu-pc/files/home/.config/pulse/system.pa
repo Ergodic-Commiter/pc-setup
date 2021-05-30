@@ -1,0 +1,4 @@
+.include /etc/pulse/system.pa
+load-module module-bluetooth-policy
+load-module module-bluetooth-discover
+

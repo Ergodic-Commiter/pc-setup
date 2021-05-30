@@ -1,0 +1,4 @@
+.env
+.jython_cache
+*.kate-swp
+*.directory
