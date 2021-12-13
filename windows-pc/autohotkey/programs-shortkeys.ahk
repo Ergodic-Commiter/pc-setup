@@ -1,4 +1,8 @@
 ﻿
+;;; Also call other scripts.
+Run C:\Users\DiegoVillamil\Library\Repos\z-Outsiders\pc-setup\windows-pc\autohotkey\changing-desktops.ahk
+
+
 ;;; Start Terminal with Ctrl + Alt + T
 ^!t::
 	Run, wt.exe

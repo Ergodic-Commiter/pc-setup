@@ -56,5 +56,4 @@ options(radian.stderr_format = "\033[0;31m{}\033[0m")
 options(radian.force_reticulate_python = FALSE,
         radian.enable_reticulate_prompt = TRUE)
 
-
 source(this_dir %>% file.path("profile.R"))
