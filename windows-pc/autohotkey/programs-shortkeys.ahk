@@ -1,6 +1,7 @@
 ﻿
 ;;; Also call other scripts.
-Run C:\Users\DiegoVillamil\Library\Repos\z-Outsiders\pc-setup\windows-pc\autohotkey\changing-desktops.ahk
+;;; Ya No.
+;;; Run C:\Users\DiegoVillamil\Library\Repos\z-Outsiders\pc-setup\windows-pc\autohotkey\changing-desktops.ahk
 
 
 ;;; Start Terminal with Ctrl + Alt + T
@@ -19,18 +20,18 @@ return
 
 ;;; Mute/Unmute Microphone with Mouse button
 ;;; https://www.autohotkey.com/boards/viewtopic.php?t=15509
-Xbutton1::
-    SoundSet, +1, MASTER, MUTE, 15
-    SoundGet, master_mute, , MUTE, 15
-    ToolTip Mute %master_mute%
-    SetTimer, RemoveToolTip, 1000
-return
+; Xbutton1::
+;     SoundSet, +1, MASTER, MUTE, 15
+;     SoundGet, master_mute, , MUTE, 15
+;     ToolTip Mute %master_mute%
+;     SetTimer, RemoveToolTip, 1000
+; return
 
 ;;; Helper for ToolTip
-RemoveToolTip:
-    SetTimer, RemoveToolTip, Off
-    ToolTip
-return
+; RemoveToolTip:
+;     SetTimer, RemoveToolTip, Off
+;     ToolTip
+; return
 
 
 ;;; NO FUNCIONA

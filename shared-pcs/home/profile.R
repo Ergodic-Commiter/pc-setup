@@ -1,9 +1,9 @@
-shhh <- suppressPackageStartupMessages
+#shhh <- suppressPackageStartupMessages
 
-shhh(library(tidyverse))
-shhh(library(magrittr))
-shhh(library(glue))
-filter <- dplyr::filter
+#shhh(library(tidyverse))
+#shhh(library(magrittr))
+#shhh(library(glue))
+#filter <- dplyr::filter
 
 
 ## Configuration
@@ -22,15 +22,15 @@ local({
 .env <- new.env()
 .env$all_equal  <- function (x) all(x %in% x[1])
 
-.env$not_na     <- function (x) not(is.na(x))*1
+.env$not_na     <- function (x) not(is.na(x))
 
-.env$not_in     <- function (x, y_set) not(x %in% y_set)*1
+.env$not_in     <- function (x, y_set) not(x %in% y_set)
 
 .env$not_exists <- function (file) not(file.exists(file))
 
 .env$classes    <- function (a_df) {
     its_classes_df <- tibble(
-        name = names(a_df),
+        name  = names(a_df),
         class = map_chr(a_df, ~(class(.x)[1])))
     return (its_classes_df)}
 
@@ -38,6 +38,10 @@ local({
 
 .env$str_delatinize <- function (x) chartr("ÁÉÍÓÚÑáéíóúñ", "AEIOUÑaeiouñ", x)
 attach(.env)
+
+
+tryCatch(startup::startup(),
+    error=function(ex) message(".Rprofile error: ", conditionMessage(ex)) )
 
 
 # Menos útiles
