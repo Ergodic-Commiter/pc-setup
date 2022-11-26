@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Gnome classic
+Comment=This session logs you into GNOME Classic
+Exec=gnome-session-classic
+TryExec=gnome-session
+Type=Application
+DesktopNames=GNOME-Classic;GNOME;
+X-Ubuntu-Gettext-Domain=gnome-shell-extensions

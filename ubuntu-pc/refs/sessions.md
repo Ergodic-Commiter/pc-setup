@@ -2,7 +2,7 @@
 
 Sessions menu in Splash Screen:  
 /usr/share/xsessions  
-/usr/share/wayland  
+/usr/share/wayland-sessions  
   
 - `.desktop` files are each an entry and shown with the given order.  
 - Erase old files that have been numbered.  

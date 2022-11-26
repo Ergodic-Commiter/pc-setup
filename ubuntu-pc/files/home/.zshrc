@@ -6,7 +6,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+# DIEGO: Modificamos el Path para el VirtualEnv. 
+export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
+
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/diego/.oh-my-zsh"
@@ -78,6 +80,10 @@ HIST_STAMPS="%d-%m-%Y"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+# DIEGO: Al utilizar una configuración para dos usuarios, ZSH detecta peligro
+# entre uno y otro, la solución es cambiar ZSH_DISABLE_COMPFIX
+ZSH_DISABLE_COMPFIX="true"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -115,9 +121,6 @@ export CONDA_ENVS_DIRS="/home/common/diego/envs"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
-
 
 
 
