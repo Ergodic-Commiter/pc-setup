@@ -1,0 +1,75 @@
+
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "blocks": [ 
+  { "type": "prompt",
+    "alignment": "left",
+    "segments": [ 
+    { "type": "os",
+      "style": "plain",
+      "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}} \ue0b1",
+      "background": "#546E7A",
+      "foreground": "#26C6DA" 
+    }, { 
+      "type": "root",
+      "style": "plain",
+      "template": " \uf0e7 ",
+      "background": "#546E7A",
+      "foreground": "#26C6DA" 
+    }, { 
+      "type": "path",
+      "style": "powerline",
+      "template": " {{.Path}} ",
+      "background": "#546E7A",
+      "foreground": "#D4E157",
+      "properties": { 
+        "style": "mixed", 
+        "home_icon": "\uf4e2 "} 
+    }, { 
+      "type": "python", 
+      "style": "plain",
+      "template": "<#26C6DA>\ue0b1 </>\ue235 {{.Major}}.{{.Minor}}{{if .Error}} {{.Error}}{{else}}{{if .Venv}}({{.Venv}}){{end}}{{end}}<transparent></> ",
+      "background": "#546E7A",
+      "foreground": "#D4E157"
+    }, { 
+      "type": "git",
+      "style": "plain",
+      "template": "<#26C6DA>\ue0b1 </>{{.HEAD}} ",
+      "background": "#546E7A",
+      "foreground": "#D4E157" 
+    }, { 
+      "type": "text",
+      "style": "plain",
+      "template": "\ue0b0",
+      "background": "transparent",
+      "foreground": "#546E7A" 
+  } ] }, { 
+    "type": "prompt",
+    "alignment": "right",
+    "segments": [ 
+    { "type": "session",
+      "style": "diamond",
+      "template": " @{{.HostName}} <#26C6DA>\ue0b3</>",
+      "background": "#546E7A",
+      "foreground": "#D4E157",
+      "leading_diamond": "\ue0b2"
+    }, { 
+      "type": "time",
+      "style": "plain",
+      "template": " {{.CurrentDate | date .Format}} \uf017 ",
+      "background": "#546E7A",
+      "foreground": "#D4E157",
+      "properties": { "time_format": "03:04 PM" } 
+  } ] }, { 
+    "type": "prompt",
+    "alignment": "left",
+    "newline": true,
+    "segments": [ {
+      "type": "status",
+      "style": "plain",
+      "template": "\u276f ", // ❯
+      "foreground": "#D4E157",
+      "foreground_templates": [ "{{if gt .Code 0}}#FF5252{{end}}" ],
+      "properties": { "always_enabled": true } 
+} ] } ] }

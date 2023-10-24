@@ -19,9 +19,6 @@
 ; to leave out {Alt Up}.
 ; -----------------------------------------------------------
 
-; Ensures a consistent starting directory.
-SetWorkingDir %A_ScriptDir%  
-
 ; Win + Alt + Left Arrow sends Win-Home
 #!Left:: send {Win Up}{Alt Up}#{Home}
 

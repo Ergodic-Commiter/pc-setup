@@ -1,15 +1,15 @@
 # Windows horrible location: 
 # My Documents\WindowsPowerShell\Microsoft.PowerShell.ps1
 
-# Oh-My-Posh profile
+# Paquetes para configurar el Prompt.  
 Import-Module posh-git
-Import-Module oh-my-posh
-Set-PoshPrompt -Theme powerlevel10k_classic
 
-# General Standard programs. 
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+
+oh-my-posh init pwsh --config "C:\Users\DiegoVillamil\Library\Repos\z-Outsiders\pc-setup\windows-pc\files\powershell\posh-themes\p10k_dx.omp.json" | Invoke-Expression
+
 
 # Customized alias for specific use. 
 Remove-Item Alias:r
@@ -20,7 +20,7 @@ New-Alias sap-hana "C:\Program Files\sap\hdbclient\hdbsql.exe"
 
 New-Alias rstudio "C:\Users\DiegoVillamil\AppData\Local\R\RStudio\bin\rstudio.exe"
 New-Alias azcopy  "C:\Users\DiegoVillamil\Programs\Portable,Zipped\AzCopy\azcopy_windows_amd64_10.10.0\azcopy.exe"
-
+New-Alias code "C:\Users\DiegoVillamil\AppData\Local\Programs\Microsoft VS Code\Code.exe" 
 
 
 # Customized functions, that may or may not be useful. 
