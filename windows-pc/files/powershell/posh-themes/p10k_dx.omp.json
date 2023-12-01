@@ -21,15 +21,15 @@
       "background": "p:themeBackground",
       "foreground": "p:themeForeground",
       "properties": { "style": "mixed", "home_icon": "\uf4e2 " } }, 
-    { "type": "git",
-      "style": "plain",
-      "template": "<p:themeSymbols>\ue0b1</> \ue65d {{.HEAD}}",
-      "background": "p:themeBackground", 
-      "foreground": "p:themeForeground"  
-    }, 
     { "type": "python", 
       "style": "plain",
       "template": "<p:themeSymbols>\ue0b1</> \ue606 {{.Major}}.{{.Minor}}{{if .Error}} {{.Error}}{{else}}{{if .Venv}}({{.Venv}}){{end}}{{end}}<transparent></>",
+      "background": "p:themeBackground", 
+      "foreground": "p:themeForeground"  
+    }, 
+    { "type": "git",
+      "style": "plain",
+      "template": "<p:themeSymbols>\ue0b1</> \ue65d {{.HEAD}}",
       "background": "p:themeBackground", 
       "foreground": "p:themeForeground"  
     }, 
@@ -37,7 +37,7 @@
       "style": "plain",
       "template": "\ue0b0",
       "background": "transparent",
-      "foreground": "p:themeSymbols"
+      "foreground": "p:themeBackground"
   } ] }, 
   { "type": "prompt", "alignment": "right",
     "segments": [ 
