@@ -20,7 +20,8 @@
       "template": " {{.Path}}",
       "background": "p:themeBackground",
       "foreground": "p:themeForeground",
-      "properties": { "style": "mixed", "home_icon": "\uf4e2 " } }, 
+      "properties": { "style": "mixed", "home_icon": "\uf4e2 " } 
+    }, 
     { "type": "python", 
       "style": "plain",
       "template": "<p:themeSymbols>\ue0b1</> \ue606 {{.Major}}.{{.Minor}}{{if .Error}} {{.Error}}{{else}}{{if .Venv}}({{.Venv}}){{end}}{{end}}<transparent></>",
@@ -60,8 +61,8 @@
     { "type": "time",
       "style": "plain",
       "template": "{{.CurrentDate | date .Format}} \uf017 ",
-      "background": "p:themeBackground", 
       "foreground": "p:themeForeground", 
+      "background": "p:themeBackground", 
       "properties": { "time_format": "03:04 PM" } 
   } ] }, 
   { "type": "prompt", "alignment": "left", "newline": true,
