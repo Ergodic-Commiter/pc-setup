@@ -24,10 +24,10 @@ blocks:
       home_icon: "<p:themeKeys>\uf4e2 </>"
   - type: python
     style: plain
-    template: "<p:themeKeys>\ue0b1 \ue235 </>{{.Major}}.{{.Minor}}{{
+    template: "<p:themeKeys>\ue0b1 \ue235 </>{{
+      .Major}}.{{.Minor}}{{
       if .Error}} {{.Error}}{{
-      else}}{{
-        if .Venv}}({{.Venv}}){{end}}{{
+      else if .Venv}}({{.Venv}}){{
       end}}<transparent></>"
     background: p:themeBackground
     foreground: p:themeForeground
@@ -52,18 +52,18 @@ blocks:
     style: plain
     background: p:themeBackground
     foreground: p:themeKeys
-    template: "{{
-        $wrk := int .Working.Changed | mul 2}}{{
-        $chg := int .Staging.Changed | add $wrk
+    template: "{{$wrk := int .Working.Changed | mul 2
+      }}{{$chg := int .Staging.Changed | add $wrk
       }}\ueba1{{
       if .BranchStatus}} {{.BranchStatus}}{{end}}{{
       if gt $chg 0}}<p:themeForeground>({{
         if gt $chg 1}}\uf044 {{.Working.String}}{{end}}{{
         if eq $chg 3}}|{{end}}{{
         if ne $chg 2}}\uf046 {{.Staging.String}}{{end
-      }})</>{{end}}{{
-      if gt .StashCount 0}} \ueb4b {{.StashCount}}{{end
-      }}<p:themeKeys> \ue0b3</>"
+        }})</>{{
+      end}}{{
+      if gt .StashCount 0}} \ueb4b {{.StashCount}}{{
+      end}}<p:themeKeys> \ue0b3</>"
     properties:
       branch_icon: "\uf126 "
       fetch_status: true
@@ -83,11 +83,11 @@ blocks:
   - type: status
     style: plain
     template: "❯ "
-    foreground: p:themeKeys
-    foreground_templates:
-    - "{{if gt .Code 0}}p:themeWarning{{end}}"
+    foreground: p:blue
     properties:
       always_enabled: true
+    foreground_templates:
+    - "{{if gt .Code 0}}p:themeWarning{{end}}"
 palette:
   black: "#31363b"
   red: "#ed1515"

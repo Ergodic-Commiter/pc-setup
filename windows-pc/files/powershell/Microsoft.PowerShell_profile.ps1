@@ -9,13 +9,13 @@ Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
 $ThisRepo = "C:\Users\DiegoVillamil\Library\Repos\z-Outsiders\pc-setup"
-$TheTheme = "windows-pc\files\powershell\posh-themes\p10k_dx.omp.yaml"
+$TheTheme = "windows-pc\files\powershell\posh-themes\p10k_dx.omp.yaml" 
 oh-my-posh init pwsh --config "$ThisRepo/$TheTheme" | Invoke-Expression
 
 # Customized alias for specific use. 
 Remove-Item Alias:r
 
-# New-Alias vim "C:\Program Files (x86)\Vim\vim82\vim.exe"
+New-Alias vim "C:\Users\DiegoVillamil\AppData\Local\Vim\vivim\vim.exe"
 # New-Alias powerbi "C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe"
 # New-Alias sap-hana "C:\Program Files\sap\hdbclient\hdbsql.exe"
 
