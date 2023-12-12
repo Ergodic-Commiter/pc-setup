@@ -1,3 +1,0 @@
-/home/common/conda/anaconda3
-/home/common/diego/envs/py310
-/home/common/diego/envs/py39

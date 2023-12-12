@@ -63,7 +63,7 @@ def sessions_dataframe(sessions_dir: Union[Path, str], order_alias: list) -> pd.
         .sort_values(['idx_alias', 'n_words'])
         .assign(is_dup = lambda df: df.loc[:, strict_eq].duplicated())
         .assign(idx    = lambda df: (~df['is_dup']).cumsum())
-        .assign(stem   = lambda df: df['File'].apply(file_2_stem))
+        .assign(stem   = lambda df: df['File'].apply(file2stem))
         .assign(n_stem = lambda df: df.apply(new_stem, axis=1))
         .assign(n_file = lambda df: df.apply(new_file, axis=1))
         .assign(name2  = lambda df: mod_name(df['Name']))
