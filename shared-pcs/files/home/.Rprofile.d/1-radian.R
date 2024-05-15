@@ -1,18 +1,16 @@
 
 # Está duplicado en profile.R ya que le falta configuración a Radian. 
-library(here)
 
-this_dir <- here()
 
-mappings <- list(
-    list(key="-", value=" <- " ),
-    list(key="m", value=" %>% "))
-	
-options(radian.escape_key_map = mappings,
-        radian.editing_mode = "vi")
+options(radian.editing_mode = "vi", 
+        radian.escape_key_map = list(
+    		list(key="-", value=" <- " ),
+    		list(key="m", value=" %>% ")))
 
-# enable the [prompt_toolkit](https://python-prompt-toolkit.readthedocs.io/en/master/index.html) [`auto_suggest` feature](https://python-prompt-toolkit.readthedocs.io/en/master/pages/asking_for_input.html#auto-suggestion)
-# this option is experimental and is known to break python prompt, use it with caution
+# enable:
+# [prompt_toolkit](https://python-prompt-toolkit.readthedocs.io/en/master/index.html) 
+# [`auto_suggest` feature](https://python-prompt-toolkit.readthedocs.io/en/master/pages/asking_for_input.html#auto-suggestion)
+# 		this option is experimental and is known to break python prompt, use it with caution
 options(radian.auto_suggest = FALSE)
 
 # highlight matching bracket
@@ -41,7 +39,7 @@ options(radian.global_history_file = "~/.radian_history",
         radian.history_search_ignore_case = TRUE)
 
 # custom prompt for different modes
-options(radian.prompt        = "\033[0;34mr$>\033[0m ")
+options(radian.prompt        = "\033[0;34mR$>\033[0m ")
 options(radian.shell_prompt  = "\033[0;31m#!>\033[0m ")
 options(radian.browse_prompt = "\033[0;33mBrowse[{}]>\033[0m ")
 
@@ -56,4 +54,3 @@ options(radian.stderr_format = "\033[0;31m{}\033[0m")
 options(radian.force_reticulate_python = FALSE,
         radian.enable_reticulate_prompt = TRUE)
 
-source(this_dir %>% file.path("profile.R"))

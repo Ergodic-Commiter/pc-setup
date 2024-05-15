@@ -56,7 +56,7 @@ blocks:
       }}{{$chg := int .Staging.Changed | add $wrk
       }}\ueba1{{
       if .BranchStatus}} {{.BranchStatus}}{{end}}{{
-      if gt $chg 0}}<p:themeForeground>({{
+      if gt $chg 0}}<p:themeForeground> ({{
         if gt $chg 1}}\uf044 {{.Working.String}}{{end}}{{
         if eq $chg 3}}|{{end}}{{
         if ne $chg 2}}\uf046 {{.Staging.String}}{{end
