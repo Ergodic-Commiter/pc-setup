@@ -75,7 +75,7 @@ blocks:
     background: p:themeBackground
     foreground: p:themeForeground
     properties:
-      time_format: 03:04 PM
+      time_format: 03:04PM
 - type: prompt
   alignment: left
   newline: true
