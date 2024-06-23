@@ -1,3 +1,4 @@
+#! /bin/bash
 
 function linkify-folder() {
   this_dir=$(realpath $1)
@@ -11,4 +12,3 @@ function linkify-folder() {
     ln -s $file $new_file
   done
 }
-

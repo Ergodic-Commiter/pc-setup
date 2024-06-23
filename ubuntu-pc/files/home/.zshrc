@@ -49,7 +49,7 @@ export UPDATE_ZSH_DAYS=30
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -80,9 +80,11 @@ HIST_STAMPS="%d-%m-%Y"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+
+################################################################################
 # DIEGO: Al utilizar una configuración para dos usuarios, ZSH detecta peligro
 # entre uno y otro, la solución es cambiar ZSH_DISABLE_COMPFIX
-ZSH_DISABLE_COMPFIX="true"
+# ZSH_DISABLE_COMPFIX="true"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -115,26 +117,29 @@ if [ -f "$HOME/.aliases" ]; then
     source $HOME/.aliases
 fi
 
-export CONDA_PKGS_DIRS="/home/common/conda/pkgs","/home/common/conda/anaconda3/pkgs","/home/diego/.conda/pkgs"
-export CONDA_ENVS_DIRS="/home/common/diego/envs"
-
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-
+# CONDA Dirs
+# export CONDA_PKGS_DIRS="/home/common/conda/pkgs","/home/common/conda/anaconda3/pkgs","/home/diego/.conda/pkgs"
+# export CONDA_ENVS_DIRS="/home/common/diego/envs"
+# CONDA_HOME_OLD="/home/common/conda/anaconda3"
+# CONDA_HOME="/home/diego/Code/Programs/anaconda3"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/common/conda/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+
+
+__conda_setup="$('/home/diego/Code/Programs/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/common/conda/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/common/conda/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/diego/Code/Programs/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/diego/Code/Programs/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/common/conda/anaconda3/bin:$PATH"
+        export PATH="/home/diego/Code/Programs/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
