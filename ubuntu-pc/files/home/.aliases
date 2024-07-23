@@ -2,11 +2,9 @@ CODE_DIR="$HOME/Code"
 PROJ_DIR="$HOME/Code/Projects"
 
 alias cd_projects="cd ${PROJ_DIR}"
-alias cd_turbine="cd ${PROJ_DIR}/work/turbine"
 alias cd_setup="cd ${PROJ_DIR}/hobby/setup"
 alias cd_moneydance="cd ${PROJ_DIR}/hobby/moneydance"
 alias cd_epic="cd ${PROJ_DIR}/work/epic"
 alias cd_hobby="cd ${PROJ_DIR}/hobby"
 alias cd_work="cd ${PROJ_DIR}/work"
 
-alias cd_installers="cd ${CODE_DIR}/Programs/installers"

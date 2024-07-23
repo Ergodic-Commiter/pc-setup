@@ -2,3 +2,5 @@
 .jython_cache
 *.kate-swp
 *.directory
+**__pycache__**
+.vscode**
