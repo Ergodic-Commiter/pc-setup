@@ -1,6 +1,6 @@
 [user]
     name = Diego Villamil
-    email = diego_villamil@outlook.com
+    email = diego.v@bineo.com 
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
@@ -8,5 +8,6 @@
 	clean = git-lfs clean -- %f
 [pretty]
     prettydx = "%C(brightyellow)%h%C(reset) %C(brightblue)%ch%C(reset)%C(brightgreen)%d%C(reset) %s"
+
 [format]
     pretty = prettydx
