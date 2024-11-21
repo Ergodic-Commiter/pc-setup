@@ -120,6 +120,9 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source /home/diego/Code/Repos/powerlevel10k/powerlevel10k.zsh-theme
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US:en
 
 
 # CONDA Dirs
