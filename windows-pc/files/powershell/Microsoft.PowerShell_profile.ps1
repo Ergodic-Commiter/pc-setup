@@ -10,7 +10,6 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
 # Import-Module dotenv
 
-
 $ThisRepo = "C:\Users\DiegoVillamil\Library\Repos\z-Outsiders\pc-setup"
 $TheTheme = "windows-pc\files\powershell\posh-themes\p10k_dx.omp.yaml" 
 oh-my-posh init pwsh --config "$ThisRepo/$TheTheme" | Invoke-Expression
@@ -19,40 +18,34 @@ oh-my-posh init pwsh --config "$ThisRepo/$TheTheme" | Invoke-Expression
 Remove-Item Alias:r
 
 $AppData = "C:\Users\DiegoVillamil\AppData"
-
+$env:VIRTUAL_ENV_DISABLE_PROMPT = 1
 
 function Load-Dotenv {
 	[CmdletBinding(SupportsShouldProcess)]
-    [Alias('dotenv')]
-    param(
-        [ValidateNotNullOrEmpty()]
-        [String] $Path = '.env',
-        [ValidateSet('Environment', 'Regular')]
-        [String] $Type = 'Environment'
-	)
-    $Env = Get-Content -raw $Path | ConvertFrom-StringData
-    $Env.GetEnumerator() | Foreach-Object {
-        $Name, $Value = $_.Name, $_.Value
-		
-		# Account for quote rules in Bash
-        $StartQuote = [Regex]::Match($Value, "^('|`")")
-        $EndQuote = [Regex]::Match($Value, "('|`")$")
-        if ($StartQuote.Success -and -not $EndQuote.Success) {
-            throw [System.IO.InvalidDataException] "Missing terminating quote $($StartQuote.Value) in '$Name': $Value"
-        } elseif (-not $StartQuote.Success -and $EndQuote.Success) {
-            throw [System.IO.InvalidDataException] "Missing starting quote $($EndQuote.Value) in '$Name': $Value"
-        } elseif ($StartQuote.Value -ne $EndQuote.Value) {
-            throw [System.IO.InvalidDataException] "Mismatched quotes in '$Name': $Value"
-        } elseif ($StartQuote.Success -and $EndQuote.Success) {
-            $Value = $Value -replace "^('|`")" -replace "('|`")$"  # Trim quotes
-        }
-        if ($PSCmdlet.ShouldProcess($Name, "Importing $Type Variable")) {
-            switch ($Type) {
-                'Environment' { Set-Content -Path "env:\$Name" -Value $Value }
-                'Regular' { Set-Variable -Name $Name -Value $Value -Scope Script }
-			}
-        }
+  [Alias('dotenv')]
+  param(
+    [ValidateNotNullOrEmpty()]
+    [String] $Path = '.env',
+    [ValidateSet('Environment', 'Regular')]
+    [String] $Type = 'Environment')
+  $Env = Get-Content -raw $Path | ConvertFrom-StringData
+  $Env.GetEnumerator() | Foreach-Object {
+    $Name, $Value = $_.Name, $_.Value
+    $Uncomment = [Regex]::Replace($Value, "\s*(#.*)?", "") # Trim Space and Comment
+    $TheMatch = [Regex]::Match($Uncomment, "^([`"'])?([^\s#=]*?)([`"'])?$")
+
+    if (-not $TheMatch.Success) {
+      throw [System.IO.InvalidDataException] "Not regex match in '$Name': $Value"
+    } elseif ($TheMatch.Groups[1].Value -ne $TheMatch.Groups[3].Value) {
+      throw [System.IO.InvalidDataException] "Mismatched quotes in '$Name': $Value"
     }
+    $TheVar = $TheMatch.Groups[2].Value
+    if ($PSCmdlet.ShouldProcess($Name, "Importing $Type Variable")) {
+      switch ($Type) {
+        'Environment' { Set-Content -Path "env:\$Name" -Value $TheVar}
+        'Regular' { Set-Variable -Name $Name -Value $TheVar -Scope Script } }
+    }
+  }
 }
 
 
