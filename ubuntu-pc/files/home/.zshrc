@@ -7,11 +7,11 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # DIEGO: Modificamos el Path para el VirtualEnv. 
-export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:/opt/homebrew/bin:$PATH
 
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/diego/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -124,25 +124,24 @@ source /home/diego/Code/Repos/powerlevel10k/powerlevel10k.zsh-theme
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US:en
 
-
-# CONDA Dirs
-# export CONDA_PKGS_DIRS="/home/common/conda/pkgs","/home/common/conda/anaconda3/pkgs","/home/diego/.conda/pkgs"
-# export CONDA_ENVS_DIRS="/home/common/diego/envs"
-# CONDA_HOME_OLD="/home/common/conda/anaconda3"
-# CONDA_HOME="/home/diego/Code/Programs/anaconda3"
+# PYENV en Mac
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PIP_TRUSTED_HOST="files.pythonhosted.org pypi.org pypi.python.org"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-
-
-__conda_setup="$('/home/diego/Code/Programs/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# $HOME/Code/Programs/anaconda3
+AT_CONDA="/opt/anaconda3"
+__conda_setup="$("${AT_CONDA}/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/diego/Code/Programs/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/diego/Code/Programs/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "${AT_CONDA}/etc/profile.d/conda.sh" ]; then
+        . "${AT_CONDA}/etc/profile.d/conda.sh"
     else
-        export PATH="/home/diego/Code/Programs/anaconda3/bin:$PATH"
+        export PATH="${AT_CONDA}/bin:$PATH"
     fi
 fi
 unset __conda_setup

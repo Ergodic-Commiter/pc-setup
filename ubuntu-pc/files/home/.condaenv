@@ -1,0 +1,5 @@
+
+
+CONDA_PKGS="/home/common/conda/pkgs","/home/common/conda/anaconda3/pkgs","/home/diego/.conda/pkgs"
+CONDA_ENVS_DIRS="/home/common/diego/envs"
+

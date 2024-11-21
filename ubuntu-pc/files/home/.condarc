@@ -1,4 +1,7 @@
+auto_activate_base: false
+
 ssl_verify: true 
+
 channels:
   - defaults
   - anaconda

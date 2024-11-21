@@ -975,7 +975,8 @@
   # 1. Display just "$P9K_CONTENT" if it's equal to "$P9K_PYENV_PYTHON_VERSION" or
   #    starts with "$P9K_PYENV_PYTHON_VERSION/".
   # 2. Otherwise display "$P9K_CONTENT $P9K_PYENV_PYTHON_VERSION".
-  typeset -g POWERLEVEL9K_PYENV_CONTENT_EXPANSION='${P9K_CONTENT}${${P9K_CONTENT:#$P9K_PYENV_PYTHON_VERSION(|/*)}:+ $P9K_PYENV_PYTHON_VERSION}'
+  # typeset -g POWERLEVEL9K_PYENV_CONTENT_EXPANSION='${P9K_CONTENT}${${P9K_CONTENT:#$P9K_PYENV_PYTHON_VERSION(|/*)}:+ $P9K_PYENV_PYTHON_VERSION}'
+  typeset -g POWERLEVEL9K_PYENV_CONTENT_EXPANSION='${P9K_CONTENT}'
 
   # Custom icon.
   # typeset -g POWERLEVEL9K_PYENV_VISUAL_IDENTIFIER_EXPANSION='⭐'
@@ -1533,7 +1534,35 @@
   #   P9K_IP_RX_RATE        | receive rate (since last prompt)
   #   P9K_IP_TX_RATE        | send rate (since last prompt)
   typeset -g POWERLEVEL9K_IP_CONTENT_EXPANSION='${P9K_IP_RX_RATE:+%70F⇣$P9K_IP_RX_RATE }${P9K_IP_TX_RATE:+%215F⇡$P9K_IP_TX_RATE }%38F$P9K_IP_IP'
-  # Show information for the first network interface whose name matches this regular expression.
+  # Show information for the first network interface whose name matches this regular expression.alias cd_setup="cd ${PROJ_DIR}/hobby/setup"
+alias cd_moneydance="cd ${PROJ_DIR}/hobby/moneydance"
+alias cd_epic="cd ${PROJ_DIR}/work/epic"
+alias cd_hobby="cd ${PROJ_DIR}/hobby"
+alias cd_work="cd ${PROJ_DIR}/work"alias cd_setup="cd ${PROJ_DIR}/hobby/setup"
+alias cd_moneydance="cd ${PROJ_DIR}/hobby/moneydance"
+alias cd_epic="cd ${PROJ_DIR}/work/epic"
+alias cd_hobby="cd ${PROJ_DIR}/hobby"
+alias cd_work="cd ${PROJ_DIR}/work"alias cd_setup="cd ${PROJ_DIR}/hobby/setup"
+alias cd_moneydance="cd ${PROJ_DIR}/hobby/moneydance"
+alias cd_epic="cd ${PROJ_DIR}/work/epic"
+alias cd_hobby="cd ${PROJ_DIR}/hobby"
+alias cd_work="cd ${PROJ_DIR}/work"alias cd_setup="cd ${PROJ_DIR}/hobby/setup"
+alias cd_moneydance="cd ${PROJ_DIR}/hobby/moneydance"
+alias cd_epic="cd ${PROJ_DIR}/work/epic"
+alias cd_hobby="cd ${PROJ_DIR}/hobby"
+alias cd_work="cd ${PROJ_DIR}/work"alias cd_setup="cd ${PROJ_DIR}/hobby/setup"
+alias cd_moneydance="cd ${PROJ_DIR}/hobby/moneydance"
+alias cd_epic="cd ${PROJ_DIR}/work/epic"
+alias cd_hobby="cd ${PROJ_DIR}/hobby"
+alias cd_work="cd ${PROJ_DIR}/work"alias cd_setup="cd ${PROJ_DIR}/hobby/setup"
+alias cd_moneydance="cd ${PROJ_DIR}/hobby/moneydance"
+alias cd_epic="cd ${PROJ_DIR}/work/epic"
+alias cd_hobby="cd ${PROJ_DIR}/hobby"
+alias cd_work="cd ${PROJ_DIR}/work"alias cd_setup="cd ${PROJ_DIR}/hobby/setup"
+alias cd_moneydance="cd ${PROJ_DIR}/hobby/moneydance"
+alias cd_epic="cd ${PROJ_DIR}/work/epic"
+alias cd_hobby="cd ${PROJ_DIR}/hobby"
+alias cd_work="cd ${PROJ_DIR}/work"
   # Run `ifconfig` or `ip -4 a show` to see the names of all network interfaces.
   typeset -g POWERLEVEL9K_IP_INTERFACE='[ew].*'
   # Custom icon.
