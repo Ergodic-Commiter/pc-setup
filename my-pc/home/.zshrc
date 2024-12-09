@@ -5,149 +5,132 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# DIEGO: Modificamos el Path para el VirtualEnv. 
-export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:/opt/homebrew/bin:$PATH
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US:en
 
+
+# Modificaciones individuales, y que dependen del OS:  
+if [[ $OSTYPE == "linux"* ]]; then 
+  export AT_CONDA=$HOME/Code/Programs/anaconda3
+elif [[ $OSTYPE == "darwin"* ]]; then 
+  export PATH=/opt/homebrew/bin:$PATH
+fi   
+export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
+
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# DIEGO: aliases en archivo de aliases, pero luego ni hay nada interesante. 
+if [ -f "$HOME/.aliases" ]; then 
+  source $HOME/.aliases
+fi
+
+
+# PYENV 
+export PYENV_ROOT="$HOME/.pyenv"
+export PIP_TRUSTED_HOST="files.pythonhosted.org pypi.org pypi.python.org"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+
+############### OH-MY-ZSH configurations ################## 
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
+# DIEGO: Al utilizar una configuración para dos usuarios, ZSH detecta peligro
+# entre uno y otro, la solución es cambiar ZSH_DISABLE_COMPFIX
+# ZSH_DISABLE_COMPFIX="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+export UPDATE_ZSH_DAYS=30
+
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME=robbyrussell, agnoster, mh, powerlevel10k/powerlevel10
+# ZSH_THEME=robbyrussell, agnoster, mh, powerlevel10k/powerlevel10, random
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=30
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
+# Uncomment to change timestamp shown in the history command output.
+# Set predefined formats:  "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or 'man strftime' for custom formats.
 HIST_STAMPS="%d-%m-%Y"
+
+# Oh-my-zsh Plugins from ~/.oh-my-zsh/(custom/)plugins/*
+# Example: plugins=(rails git textmate ruby lighthouse)
+plugins=(git pyenv)
+
+# Set list of themes to pick from when loading at random
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment for case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
+
+# Uncomment to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment to disable marking untracked files under VCS as dirty. 
+# Makes large repository status check much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+# For customized aliases, it is recommended to define 
+# them within ZSH_CUSTOM.  For a list of alias, run `alias`.
 
 
 ################################################################################
-# DIEGO: Al utilizar una configuración para dos usuarios, ZSH detecta peligro
-# entre uno y otro, la solución es cambiar ZSH_DISABLE_COMPFIX
-# ZSH_DISABLE_COMPFIX="true"
-
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# DIEGO: pongo los aliases en archivo general:  .ALIASES
-if [ -f "$HOME/.aliases" ]; then 
-    source $HOME/.aliases
-fi
-
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-# source /home/diego/Code/Repos/powerlevel10k/powerlevel10k.zsh-theme
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US:en
+# Referencia .../Repos/powerlevel10k/powerlevel10k.zsh-theme
 
-# PYENV en Mac
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-export PIP_TRUSTED_HOST="files.pythonhosted.org pypi.org pypi.python.org"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-export AT_CONDA=$HOME/Code/Programs/anaconda3
 __conda_setup="$("${AT_CONDA}/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+  eval "$__conda_setup"
 else
-    if [ -f "${AT_CONDA}/etc/profile.d/conda.sh" ]; then
-        . "${AT_CONDA}/etc/profile.d/conda.sh"
-    else
-        export PATH="${AT_CONDA}/bin:$PATH"
-    fi
+  if [ -f "${AT_CONDA}/etc/profile.d/conda.sh" ]; then
+    . "${AT_CONDA}/etc/profile.d/conda.sh"
+  else
+    export PATH="${AT_CONDA}/bin:$PATH"
+  fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
-# PYENV
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
