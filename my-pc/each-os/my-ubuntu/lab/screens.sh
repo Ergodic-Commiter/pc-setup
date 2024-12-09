@@ -34,9 +34,6 @@ xrandr --dpi 93 --fb 3288x1080 \
 # OPCION 2:  usar la resolución más alta, y utilizar el parámetro de SCALE. 
 
 
-
-  
-
 Output: 
 Screen 0: minimum 320 x 200, current 3840 x 1080, maximum 16384 x 16384
 # ThinkPad T490
