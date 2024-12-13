@@ -1,0 +1,62 @@
+{   "description": "Swap back App Switcher",
+    "manipulators": [
+    {   "description": "Activate App Switcher",
+        "type": "basic",
+        "from": {
+            "key_code": "tab",
+            "modifiers": {
+                "mandatory": ["command"],
+                "optional": [ "shift" ] } },
+        "to": [
+        {   "key_code": "tab",
+            "modifiers": ["control"] } ] },
+    {   "description": "Swap back Tab Switcher",
+        "type": "basic",
+        "from": {
+            "key_code": "tab",
+            "modifiers": {
+                "mandatory": ["control"],
+                "optional": ["shift"] } },
+        "to": [
+        {   "key_code": "tab",
+            "modifiers": ["command"] } ] },
+    {   "description": "Sticky tab",
+        "type": "basic",
+        "from": {
+            "key_code": "tab",
+            "modifiers": {
+                "mandatory": ["command"],
+                "optional": ["shift"] } },
+        "conditions": [
+        {   "type": "variable_if",
+            "name": "left_alt_pressed",
+            "value": 1 } ],
+        "to": [
+        {   "key_code": "tab",
+            "modifiers": ["left_command"] } ] },
+    {   "description": "Sticky left arrow",
+        "type": "basic",
+        "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+                "mandatory": ["command"] } },
+        "conditions": [
+        {   "type": "variable_if",
+            "name": "left_alt_pressed",
+            "value": 1 } ],
+        "to": [
+        {   "key_code": "left_arrow",
+            "modifiers": ["left_command"] } ] },
+    {   "description": "Sticky right arrow",
+        "type": "basic",
+        "from": {
+            "key_code": "right_arrow",
+            "modifiers": {
+                "mandatory": ["command"] } },
+        "conditions": [
+        {   "type": "variable_if",
+            "name": "left_alt_pressed",
+            "value": 1 } ],
+        "to": [
+        {   "key_code": "right_arrow",
+            "modifiers": [ "left_command" ] } ] } ] }

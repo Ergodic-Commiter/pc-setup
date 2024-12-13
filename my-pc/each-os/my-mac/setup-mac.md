@@ -59,7 +59,7 @@ Y pues los otros que necesito ir registrando para recordarme:
 
 - Navegación con teclado externo (Logi):  `ins`, `del`, `home`, `end`, `pgup`, `pgdn`.  
 
-- Dock que sólo muestra las apps del _space_ actual.  
+- Dock que sólo muestre las apps del _space_ actual.  
 
 - Cambiar `~/Desktop/Screenshots` a otro lado.  
     De preferencia sería resolver cómo se usa _Flameshot_, pero en su defecto ésto.  
@@ -80,7 +80,7 @@ Y pues los otros que necesito ir registrando para recordarme:
 - **Python** (solito) no está hecha para desarrollar con Python.   
     Para eso se requiere ya sea `conda` o la nueva favorita `pyenv`.  
 
-- **Postman** tiene la gentileza de crear su carpeta de configuraciones en `~/Postman`, 
+- **Postman** tiene la gentileza de crear su carpeta de configuraciones en `~/Postman`,   
 pero ésta es fácil de cambiar, por ejemplo a `~/Documents/Postman` .  
 
 - Muchas apps requieren configuración adicional desde _Settings_:  
@@ -92,6 +92,8 @@ pero ésta es fácil de cambiar, por ejemplo a `~/Documents/Postman` .
     El nombre con minúsculas es desesperante, cambiar a `Flameshot`.  
 
 - **Karabiner** necesita guardar su configuración en `~/.config/karabiner` y estaba mal configurado.  
+    Tras ajustar a carpeta, investigamos las configuraciones que nos permiten arreglarlo.  
+    Y las guardamos en `refs/my-libs/karabiner`
 
 - **HiddenBar** no se puede configurar si tiene muchos íconos habilitados.  
     Entonces se cierran algunas apps, se configura y después se vuelven a abrir la apps.  
@@ -99,8 +101,8 @@ pero ésta es fácil de cambiar, por ejemplo a `~/Documents/Postman` .
 - **Edge** incluye la foto de perfile en la barra del título.  
     Requiere mantener presionado `[Cmd+Q]` para cerrarlo.  
 
-
 # Otras 
+
 
 Estas las apunté y ya no le entiendo qué eran:  
 
@@ -110,5 +112,6 @@ Estas las apunté y ya no le entiendo qué eran:
     También sugiere _identities_ equivocadamente.  
 
 - Hubo algo de un indicador del cursor en la ruta:  
-    `Library/Preferences/Features/Domain/UIKit.plist` y la instrucción, 
-    `redesigned_text_cursor -dict-add Enabled -bool NO`.  
+    `Library/Preferences/Features/Domain/UIKit.plist` y la instrucción,  
+    `redesigned_text_cursor -dict-add Enabled -bool NO`. 
+ 
