@@ -1,8 +1,6 @@
-// Used for parsing JSON files: 
-{ "tabWidth": 2,
-  "useTabs": false,
-  "printWidth": 80,
-  "bracketSameLine": true,
-  "trailingComma": "none",
-  "jsonRecursive": true // Example custom option (if supported by extensions)
+{
+    "printWidth": 80,
+    "trailingComma": "none",
+    "bracketSpacing": true, 
+    "bracketSameLine": false 
 }

@@ -1,0 +1,27 @@
+{ "complex_modifications": {
+    "parameters": { "param_var": "param_val" },
+    "rules": [
+    { "description": "This description is shown in Settings.",
+      "manipulators": [
+      { "description": "Optional description for human",
+        "conditions": ["condition definition"],
+        "from": {
+          "type": "object", 
+          "example": {
+              "key_code": "caps_lock",
+              "modifiers": {
+                "mandatory": ["left_shift"],
+                "optional": ["any"] } } },
+        "to": { 
+          "type": "list of objects", 
+          "example": [ 
+            { "key_code": "page_down",
+              "modifiers": [] } ] }, 
+        "to_if_alone": ["to event definition"],
+        "to_if_held_down": ["to event definition"],
+        "to_after_key_up": ["to event definition"],
+        "to_delayed_action": {
+          "to_if_invoked": ["to event definition"],
+          "to_if_canceled": ["to event definition"] },
+        "parameters": { "param_var": "param_val" },
+        "type": "basic" } ] } ] } }

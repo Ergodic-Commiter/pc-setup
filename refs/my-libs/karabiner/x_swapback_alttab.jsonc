@@ -1,0 +1,133 @@
+{ // Los ejemplos tenían diferentes reglas.  
+  // Al pegarlos, pensé que daba igual si eran Manipuladores. 
+  // Estaba equivocado.  
+  // Pero al final se resolvió.  
+  // Guardo el archivo por no dejar. 
+  "be9em0t": {
+    "description": "Try 1",
+    "manipulators": [
+      { "description": "Sticky Alt to Cmd Variable",
+        "type": "basic",
+        "from": {
+          "key_code": "left_alt",
+          "modifiers": {
+            "optional": [ "any" ] } },
+        "to": [
+          { "set_variable": {
+              "name": "left_alt pressed",
+              "value": 1 } },
+          { "key_code": "left_command" } ],
+        "to_delayed_action": {
+          "to_if_invoked": [
+            { "set_variable": {
+                "name": "left_alt pressed",
+                "value": 0 } } ],
+          "to_if_canceled": [
+            { "set_variable": {
+                "name": "left_alt pressed",
+                "value": 0 } } ] } },
+      { "description": "Press Tab",
+        "type": "basic",
+        "from": {
+          "key_code": "tab",
+          "modifiers": {
+            "optional": [ "any" ] } },
+        "to": [ 
+          { "key_code": "tab" } ],
+        "conditions": [
+          { "type": "variable_if",
+            "name": "left_alt pressed",
+            "value": 1 } ] } ] },
+  "99p": {
+    "description": "Try 2",
+    "manipulators": [
+      { "description": "FLAG :: rcontrol",
+        "type": "basic",
+        "from": {
+          "key_code": "right_control" },
+        "to": [
+          { "set_variable": {
+              "name": "flag_rcontrol",
+              "value": 1 } } ],
+        "to_after_key_up": [
+          { "set_variable": {
+              "name": "flag_rcontrol",
+              "value": 0 } } ] },
+      { "type": "basic",
+        "from": {
+          "key_code": "left_shift" },
+        "to": [
+          { "set_variable": {
+              "name": "flag_appswitching",
+              "value": 1 } } ],
+        "to_after_key_up": [
+          { "set_variable": {
+              "name": "flag_appswitching",
+              "value": 0 } } ],
+        "conditions": [
+          { "type": "variable_if",
+            "name": "flag_rcontrol",
+            "value": 1 } ] },
+      { "description": "RControl-Shift-Tab :: Command-Shift-Tab",
+        "type": "basic",
+        "from": {
+          "key_code": "tab",
+          "modifiers": {
+            "optional": [ "any" ] } },
+        "to": [
+          { "key_code": "tab",
+            "modifiers": [
+              "command",
+              "shift" ] } ],
+        "conditions": [
+          { "type": "variable_if",
+            "name": "flag_appswitching",
+            "value": 1 } ] },
+      { "description": "RControl-Tab :: Command-Tab",
+        "type": "basic",
+        "from": {
+          "key_code": "tab" },
+        "to": [
+          { "key_code": "tab",
+            "modifiers": [ "command" ] } ],
+        "conditions": [
+          { "type": "variable_if",
+            "name": "flag_rcontrol",
+            "value": 1 } ] } ] },
+  "CoreJa": {
+    "title": "My basic configuration",
+    "rules": [
+      { "manipulators": [
+          { "description": "Sticky Alt to Cmd Variable",
+            "type": "basic",
+            "from": {
+              "key_code": "left_control",
+              "modifiers": {
+                "optional": [ "any" ] } },
+            "to": [
+              { "set_variable": {
+                  "name": "left_alt_pressed",
+                  "value": 1 } },
+              { "key_code": "left_command" } ],
+            "to_delayed_action": {
+              "to_if_invoked": [
+                { "set_variable": {
+                    "name": "left_alt_pressed",
+                    "value": 0 } } ],
+              "to_if_canceled": [
+                { "set_variable": {
+                    "name": "left_alt_pressed",
+                    "value": 0 } } ] } } ] },
+      { "manipulators": [
+          { "description": "Sticky Alt-Tab to Cmd-Tab",
+            "type": "basic",
+            "from": {
+              "key_code": "tab",
+              "modifiers": {
+                "optional": [ "any" ] } },
+            "to": [ 
+              { "key_code": "tab" } ],
+            "conditions": [
+              { "type": "variable_if",
+                "name": "left_alt_pressed",
+                "value": 1 } ] } ] } ] } }
