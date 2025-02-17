@@ -2,9 +2,13 @@ const fs = require("fs");
 
 function lonely_brackets(inputFile) {
   const substitutions = [
-    { pattern: / +$/gm, replacement: "" }, // Trim but most likely not needed.
-    { pattern: /\n\s*([}\]],?)(?=\n\s*[}\]],?|$)/gm, replacement: " $1" }, // closing brackets to previous line.
+    // Trim, possibly not needed.
+    { pattern: / +$/gm, replacement: "" }, 
+    // Lonely closing brackets to previous line.
+    { pattern: /\n\s*([}\]],?)(?=\n\s*[}\]],?|$)/gm, replacement: " $1" }, 
+    // Lonely opening bracket joined with next line.  
     { pattern: /^( *\{)\n +/gm, replacement: "$1 " },
+    // If list takes two lines, make it one.  
     { pattern: /\[\n\s*(.*?)\s?\]/gm, replacement: "[ $1 ]" } ];
   try {
     let content = fs.readFileSync(inputFile, "utf8");

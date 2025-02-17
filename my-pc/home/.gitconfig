@@ -12,3 +12,5 @@
     pretty = dx
 [credential]
 	helper = manager
+[core]
+	editor = vim
