@@ -132,8 +132,7 @@ export PIP_TRUSTED_HOST="files.pythonhosted.org pypi.org pypi.python.org"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-# $HOME/Code/Programs/anaconda3
-AT_CONDA="/opt/anaconda3"
+export AT_CONDA=$HOME/Code/Programs/anaconda3
 __conda_setup="$("${AT_CONDA}/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
@@ -147,3 +146,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# PYENV
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
