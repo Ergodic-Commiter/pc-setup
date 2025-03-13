@@ -112,13 +112,23 @@
                 ],
                 "type": "basic"
               },
-              { "description": "Disable 🐭🖕🏻",
+              { "description": "🪼🐭🖕🏻 Bitwarden", 
+                "type": "mouse",
+                "from": { "pointing_button": "button3" },
+                "to": [
+                  { "shell_command": "open -a Bitwarden" }
+                ],
+                "conditions": [
+                  { "type": "device_if",
+                  "vendor_id": 6421,
+                      "product_id": 64
+                   } ] },
+              { "description": "🐭🖕🏻 Disable",
+                "type": "basic",
                 "from": { "pointing_button": "button3" },
                 "to_if_alone": [
                   { "key_code": "vk_none" }
-                ],
-                "type": "basic"
-              } ] },
+                ] } ] },
           { "description": "App control (non terminal)",
             "manipulators": [
               { "description": "Copy: ^C ⌘C",
@@ -552,7 +562,7 @@
               } ] },
           { "description": "Browsers",
             "manipulators": [
-              { "description": "Home: μ⇱ ⌥←",
+              { "description": "Home: μ⇱ ⌘←",
                 "conditions": [
                   { "type": "frontmost_application_if",
                     "bundle_identifiers": [
@@ -573,7 +583,7 @@
                   } ],
                 "type": "basic"
               },
-              { "description": "End: μ⇲ ⌥→",
+              { "description": "End: μ⇲ ⌘→",
                 "conditions": [
                   { "type": "frontmost_application_if",
                     "bundle_identifiers": [
