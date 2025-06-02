@@ -20,7 +20,7 @@ aplicaciones:
   Si me acuerdo bien, cuando la barra está sobrepoblada no se puede configurar.  
   Entonces escondimos o borramos algunos íconos, la configuramos, y después regresamos los íconos.  
 
-- *Karabiner:*  Por ahora la mejor aplicación en Mac, sirve para modificar shortcuts.  
+- *Karabiner:*  Por ahora la mejor aplicación en Mac, sirve para modificar _shortcuts_.  
   Si bien requiere algo de trabajo para entender las configuraciones, uno puede encontrar 
   el material y modificarlo al gusto.  
   Las categorías que usamos para modificar los _shortcuts_:  

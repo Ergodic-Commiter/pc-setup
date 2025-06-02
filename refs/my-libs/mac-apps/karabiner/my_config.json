@@ -89,48 +89,46 @@
         "rules": [
           { "description": "Desktop",
             "manipulators": [
-              { "description": "Lock Screen: ⌘L ^⌘Q",
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": [ "left_command" ]
-                  } },
-                "to": [
-                  { "key_code": "q",
-                    "modifiers": [ "left_control", "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "Open iTerm",
+              { "description": "^⌘T iTerm",
                 "from": {
                   "key_code": "t",
-                  "modifiers": {
-                    "mandatory": [ "control", "left_command" ]
-                  } },
-                "to": [
-                  { "shell_command": "open -a iTerm" }
-                ],
+                  "modifiers": { "mandatory": [ "control", "left_command" ] } },
+                "to": [ { "shell_command": "open -a iTerm" } ],
                 "type": "basic"
               },
-              { "description": "🪼🐭🖕🏻 Bitwarden", 
+              { "description": "🪼🐭🖕🏻 Bitwarden",
                 "type": "mouse",
                 "from": { "pointing_button": "button3" },
-                "to": [
-                  { "shell_command": "open -a Bitwarden" }
-                ],
+                "to": [ { "shell_command": "open -a Bitwarden" } ],
                 "conditions": [
                   { "type": "device_if",
-                  "vendor_id": 6421,
-                      "product_id": 64
-                   } ] },
+                    "vendor_id": 6421,
+                    "product_id": 64
+                  } ] },
               { "description": "🐭🖕🏻 Disable",
                 "type": "basic",
                 "from": { "pointing_button": "button3" },
-                "to_if_alone": [
-                  { "key_code": "vk_none" }
-                ] } ] },
+                "to_if_alone": [ { "key_code": "vk_none" } ] } ] },
           { "description": "App control (non terminal)",
             "manipulators": [
+              { "description": "Sel. All: ^A ⌘A",
+                "conditions": [
+                  { "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$"
+                    ] } ],
+                "from": {
+                  "key_code": "a",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "a",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
               { "description": "Copy: ^C ⌘C",
                 "conditions": [
                   { "type": "frontmost_application_unless",
@@ -140,16 +138,15 @@
                     ] } ],
                 "from": {
                   "key_code": "c",
-                  "modifiers": {
-                    "mandatory": [ "control" ]
-                  } },
+                  "modifiers": { 
+                    "mandatory": [ "control" ] } },
                 "to": [
                   { "key_code": "c",
                     "modifiers": [ "left_command" ]
                   } ],
                 "type": "basic"
               },
-              { "description": "Cut: ^X ⌘X",
+              { "description": "Find: ^F ⌘F",
                 "conditions": [
                   { "type": "frontmost_application_unless",
                     "bundle_identifiers": [
@@ -157,12 +154,31 @@
                       "^com\\.googlecode\\.iterm2$"
                     ] } ],
                 "from": {
-                  "key_code": "x",
+                  "key_code": "f",
                   "modifiers": {
                     "mandatory": [ "control" ]
                   } },
                 "to": [
-                  { "key_code": "x",
+                  { "key_code": "f",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
+              { "description": "Del. Line: ^⇧?K ⌘K",
+                "conditions": [
+                  { "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$"
+                    ] } ],
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [ "control" ],
+                    "optional": [ "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "k",
                     "modifiers": [ "left_command" ]
                   } ],
                 "type": "basic"
@@ -185,7 +201,7 @@
                   } ],
                 "type": "basic"
               },
-              { "description": "Undo: ^Z ⌘Z",
+              { "description": "Close: ^W ⌘W",
                 "conditions": [
                   { "type": "frontmost_application_unless",
                     "bundle_identifiers": [
@@ -193,12 +209,28 @@
                       "^com\\.googlecode\\.iterm2$"
                     ] } ],
                 "from": {
-                  "key_code": "z",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [ "control" ]
                   } },
                 "to": [
-                  { "key_code": "z",
+                  { "key_code": "w",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
+              { "description": "Cut: ^X ⌘X",
+                "conditions": [
+                  { "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$"
+                    ] } ],
+                "from": {
+                  "key_code": "x",
+                  "modifiers": { "mandatory": [ "control" ] } },
+                "to": [
+                  { "key_code": "x",
                     "modifiers": [ "left_command" ]
                   } ],
                 "type": "basic"
@@ -221,7 +253,7 @@
                   } ],
                 "type": "basic"
               },
-              { "description": "Sel. All: ^A ⌘A",
+              { "description": "Undo: ^Z ⌘Z",
                 "conditions": [
                   { "type": "frontmost_application_unless",
                     "bundle_identifiers": [
@@ -229,12 +261,66 @@
                       "^com\\.googlecode\\.iterm2$"
                     ] } ],
                 "from": {
-                  "key_code": "a",
+                  "key_code": "z",
                   "modifiers": {
                     "mandatory": [ "control" ]
                   } },
                 "to": [
-                  { "key_code": "a",
+                  { "key_code": "z",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
+              { "description": "Zoom In?: ^= ⌘=  (equal_sign in ¿key)",
+                "conditions": [
+                  { "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$"
+                    ] } ],
+                "from": {
+                  "key_code": "equal_sign",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "equal_sign",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
+              { "description": "Zoom Out: ^- ⌘-",
+                "conditions": [
+                  { "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$"
+                    ] } ],
+                "from": {
+                  "key_code": "hyphen",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "hyphen",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
+              { "description": "^🐭👆🏻 ⌘🐭👆🏻",
+                "conditions": [
+                  { "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$"
+                    ] } ],
+                "from": {
+                  "pointing_button": "button1",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "pointing_button": "button1",
                     "modifiers": [ "left_command" ]
                   } ],
                 "type": "basic"
@@ -292,115 +378,6 @@
                 "to": [
                   { "key_code": "delete_or_backspace",
                     "modifiers": [ "left_option" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "Del. Line: ^⇧?K ⌘K",
-                "conditions": [
-                  { "type": "frontmost_application_unless",
-                    "bundle_identifiers": [
-                      "^com\\.apple\\.Terminal$",
-                      "^com\\.googlecode\\.iterm2$"
-                    ] } ],
-                "from": {
-                  "key_code": "k",
-                  "modifiers": {
-                    "mandatory": [ "control" ],
-                    "optional": [ "shift" ]
-                  } },
-                "to": [
-                  { "key_code": "k",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "^[FW=-] ⌘[FW=-]",
-                "conditions": [
-                  { "type": "frontmost_application_unless",
-                    "bundle_identifiers": [
-                      "^com\\.apple\\.Terminal$",
-                      "^com\\.googlecode\\.iterm2$"
-                    ] } ],
-                "from": {
-                  "key_code": "f",
-                  "modifiers": {
-                    "mandatory": [ "control" ]
-                  } },
-                "to": [
-                  { "key_code": "f",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "^[FW=-] ⌘[FW=-]",
-                "conditions": [
-                  { "type": "frontmost_application_unless",
-                    "bundle_identifiers": [
-                      "^com\\.apple\\.Terminal$",
-                      "^com\\.googlecode\\.iterm2$"
-                    ] } ],
-                "from": {
-                  "key_code": "w",
-                  "modifiers": {
-                    "mandatory": [ "control" ]
-                  } },
-                "to": [
-                  { "key_code": "w",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "^[FW=-] ⌘[FW=-]",
-                "conditions": [
-                  { "type": "frontmost_application_unless",
-                    "bundle_identifiers": [
-                      "^com\\.apple\\.Terminal$",
-                      "^com\\.googlecode\\.iterm2$"
-                    ] } ],
-                "from": {
-                  "key_code": "equal_sign",
-                  "modifiers": {
-                    "mandatory": [ "control" ]
-                  } },
-                "to": [
-                  { "key_code": "equal_sign",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "^[FW=-] ⌘[FW=-]",
-                "conditions": [
-                  { "type": "frontmost_application_unless",
-                    "bundle_identifiers": [
-                      "^com\\.apple\\.Terminal$",
-                      "^com\\.googlecode\\.iterm2$"
-                    ] } ],
-                "from": {
-                  "key_code": "hyphen",
-                  "modifiers": {
-                    "mandatory": [ "control" ]
-                  } },
-                "to": [
-                  { "key_code": "hyphen",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "^🐭👆🏻 ⌘🐭👆🏻",
-                "conditions": [
-                  { "type": "frontmost_application_unless",
-                    "bundle_identifiers": [
-                      "^com\\.apple\\.Terminal$",
-                      "^com\\.googlecode\\.iterm2$"
-                    ] } ],
-                "from": {
-                  "pointing_button": "button1",
-                  "modifiers": {
-                    "mandatory": [ "control" ]
-                  } },
-                "to": [
-                  { "pointing_button": "button1",
-                    "modifiers": [ "left_command" ]
                   } ],
                 "type": "basic"
               },
@@ -562,6 +539,305 @@
               } ] },
           { "description": "Browsers",
             "manipulators": [
+              { "description": "Bookmarks: ^B ⌘B",
+                "conditions": [
+                  { "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.brave\\.Browser$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ] } ],
+                "from": {
+                  "key_code": "b",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "b",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
+              { "description": "Add bookmark: ^⇧?D ⌘D",
+                "conditions": [
+                  { "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.brave\\.Browser$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ] } ],
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "mandatory": [ "control" ],
+                    "optional": [ "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "d",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
+              { "description": "Find: ^⇧?G ⌘G",
+                "conditions": [
+                  { "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.brave\\.Browser$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ] } ],
+                "from": {
+                  "key_code": "g",
+                  "modifiers": {
+                    "mandatory": [ "control" ],
+                    "optional": [ "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "g",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
+              { "description": "Info: ^I ⌘I",
+                "conditions": [
+                  { "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.brave\\.Browser$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ] } ],
+                "from": {
+                  "key_code": "i",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "i",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
+              { "description": "Address bar?: ^K ⌘K",
+                "conditions": [
+                  { "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.brave\\.Browser$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ] } ],
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "k",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
+              { "description": "Address bar?: ^L ⌘L",
+                "conditions": [
+                  { "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.brave\\.Browser$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ] } ],
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "l",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
+              { "description": "New winow: ^⇧?N ⌘N",
+                "conditions": [
+                  { "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.brave\\.Browser$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ] } ],
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "mandatory": [ "control" ],
+                    "optional": [ "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "n",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
+              { "description": "Print: ^P ⌘P",
+                "conditions": [
+                  { "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.brave\\.Browser$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ] } ],
+                "from": {
+                  "key_code": "p",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "p",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
+              { "description": "Quit: ^⇧Q ⌘Q",
+                "conditions": [
+                  { "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.brave\\.Browser$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ] } ],
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": [ "control", "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "q",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              } ,
+              { "description": "Reload: ^⇧?R ⌘R",
+                "conditions": [
+                  { "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.brave\\.Browser$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ] } ],
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "mandatory": [ "control" ],
+                    "optional": [ "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "r",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
+              { "description": "Save as: ^S ⌘S",
+                "conditions": [
+                  { "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.brave\\.Browser$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ] } ],
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "s",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
+              { "description": "New tab: ^⇧?T ⌘T",
+                "conditions": [
+                  { "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.brave\\.Browser$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ] } ],
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {
+                    "mandatory": [ "control" ],
+                    "optional": [ "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "t",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
+              { "description": "Source: ^U ⌘U",
+                "conditions": [
+                  { "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.brave\\.Browser$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ] } ],
+                "from": {
+                  "key_code": "u",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "u",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
+              { "description": "Zoom: ^0 ⌘0",
+                "conditions": [
+                  { "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.brave\\.Browser$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ] } ],
+                "from": {
+                  "key_code": "0",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "0",
+                    "modifiers": [ "left_command" ]
+                  } ],
+                "type": "basic"
+              },
               { "description": "Home: μ⇱ ⌘←",
                 "conditions": [
                   { "type": "frontmost_application_if",
@@ -635,116 +911,6 @@
                 "to": [
                   { "key_code": "i",
                     "modifiers": [ "option", "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "Reload: ^⇧?R ⌘R",
-                "conditions": [
-                  { "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "^org\\.mozilla\\.firefox$",
-                      "^org\\.brave\\.Browser$",
-                      "^com\\.microsoft\\.Edge",
-                      "^com\\.google\\.Chrome$",
-                      "^com\\.apple\\.Safari$"
-                    ] } ],
-                "from": {
-                  "key_code": "r",
-                  "modifiers": {
-                    "mandatory": [ "control" ],
-                    "optional": [ "shift" ]
-                  } },
-                "to": [
-                  { "key_code": "r",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "New tab: ^⇧?T ⌘T",
-                "conditions": [
-                  { "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "^org\\.mozilla\\.firefox$",
-                      "^org\\.brave\\.Browser$",
-                      "^com\\.microsoft\\.Edge",
-                      "^com\\.google\\.Chrome$",
-                      "^com\\.apple\\.Safari$"
-                    ] } ],
-                "from": {
-                  "key_code": "t",
-                  "modifiers": {
-                    "mandatory": [ "control" ],
-                    "optional": [ "shift" ]
-                  } },
-                "to": [
-                  { "key_code": "t",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "Find: ^⇧?G ⌘G",
-                "conditions": [
-                  { "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "^org\\.mozilla\\.firefox$",
-                      "^org\\.brave\\.Browser$",
-                      "^com\\.microsoft\\.Edge",
-                      "^com\\.google\\.Chrome$",
-                      "^com\\.apple\\.Safari$"
-                    ] } ],
-                "from": {
-                  "key_code": "g",
-                  "modifiers": {
-                    "mandatory": [ "control" ],
-                    "optional": [ "shift" ]
-                  } },
-                "to": [
-                  { "key_code": "g",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "New win?: ^⇧?N ⌘N",
-                "conditions": [
-                  { "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "^org\\.mozilla\\.firefox$",
-                      "^org\\.brave\\.Browser$",
-                      "^com\\.microsoft\\.Edge",
-                      "^com\\.google\\.Chrome$",
-                      "^com\\.apple\\.Safari$"
-                    ] } ],
-                "from": {
-                  "key_code": "n",
-                  "modifiers": {
-                    "mandatory": [ "control" ],
-                    "optional": [ "shift" ]
-                  } },
-                "to": [
-                  { "key_code": "n",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "Add bookmark: ^⇧?D ⌘D",
-                "conditions": [
-                  { "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "^org\\.mozilla\\.firefox$",
-                      "^org\\.brave\\.Browser$",
-                      "^com\\.microsoft\\.Edge",
-                      "^com\\.google\\.Chrome$",
-                      "^com\\.apple\\.Safari$"
-                    ] } ],
-                "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "mandatory": [ "control" ],
-                    "optional": [ "shift" ]
-                  } },
-                "to": [
-                  { "key_code": "d",
-                    "modifiers": [ "left_command" ]
                   } ],
                 "type": "basic"
               },
@@ -831,196 +997,7 @@
                     "modifiers": [ "control" ]
                   } ],
                 "type": "basic"
-              },
-              { "description": "Bookmarks: ^B ⌘B",
-                "conditions": [
-                  { "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "^org\\.mozilla\\.firefox$",
-                      "^org\\.brave\\.Browser$",
-                      "^com\\.microsoft\\.Edge",
-                      "^com\\.google\\.Chrome$",
-                      "^com\\.apple\\.Safari$"
-                    ] } ],
-                "from": {
-                  "key_code": "b",
-                  "modifiers": {
-                    "mandatory": [ "control" ]
-                  } },
-                "to": [
-                  { "key_code": "b",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "Address bar?: ^K ⌘K",
-                "conditions": [
-                  { "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "^org\\.mozilla\\.firefox$",
-                      "^org\\.brave\\.Browser$",
-                      "^com\\.microsoft\\.Edge",
-                      "^com\\.google\\.Chrome$",
-                      "^com\\.apple\\.Safari$"
-                    ] } ],
-                "from": {
-                  "key_code": "k",
-                  "modifiers": {
-                    "mandatory": [ "control" ]
-                  } },
-                "to": [
-                  { "key_code": "k",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "Address bar?: ^L ⌘L",
-                "conditions": [
-                  { "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "^org\\.mozilla\\.firefox$",
-                      "^org\\.brave\\.Browser$",
-                      "^com\\.microsoft\\.Edge",
-                      "^com\\.google\\.Chrome$",
-                      "^com\\.apple\\.Safari$"
-                    ] } ],
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": [ "control" ]
-                  } },
-                "to": [
-                  { "key_code": "l",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "Print: ^P ⌘P",
-                "conditions": [
-                  { "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "^org\\.mozilla\\.firefox$",
-                      "^org\\.brave\\.Browser$",
-                      "^com\\.microsoft\\.Edge",
-                      "^com\\.google\\.Chrome$",
-                      "^com\\.apple\\.Safari$"
-                    ] } ],
-                "from": {
-                  "key_code": "p",
-                  "modifiers": {
-                    "mandatory": [ "control" ]
-                  } },
-                "to": [
-                  { "key_code": "p",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "Save as: ^S ⌘S",
-                "conditions": [
-                  { "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "^org\\.mozilla\\.firefox$",
-                      "^org\\.brave\\.Browser$",
-                      "^com\\.microsoft\\.Edge",
-                      "^com\\.google\\.Chrome$",
-                      "^com\\.apple\\.Safari$"
-                    ] } ],
-                "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "mandatory": [ "control" ]
-                  } },
-                "to": [
-                  { "key_code": "s",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "Info: ^I ⌘I",
-                "conditions": [
-                  { "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "^org\\.mozilla\\.firefox$",
-                      "^org\\.brave\\.Browser$",
-                      "^com\\.microsoft\\.Edge",
-                      "^com\\.google\\.Chrome$",
-                      "^com\\.apple\\.Safari$"
-                    ] } ],
-                "from": {
-                  "key_code": "i",
-                  "modifiers": {
-                    "mandatory": [ "control" ]
-                  } },
-                "to": [
-                  { "key_code": "i",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "Source: ^U ⌘U",
-                "conditions": [
-                  { "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "^org\\.mozilla\\.firefox$",
-                      "^org\\.brave\\.Browser$",
-                      "^com\\.microsoft\\.Edge",
-                      "^com\\.google\\.Chrome$",
-                      "^com\\.apple\\.Safari$"
-                    ] } ],
-                "from": {
-                  "key_code": "u",
-                  "modifiers": {
-                    "mandatory": [ "control" ]
-                  } },
-                "to": [
-                  { "key_code": "u",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "Zoom: ^0 ⌘0",
-                "conditions": [
-                  { "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "^org\\.mozilla\\.firefox$",
-                      "^org\\.brave\\.Browser$",
-                      "^com\\.microsoft\\.Edge",
-                      "^com\\.google\\.Chrome$",
-                      "^com\\.apple\\.Safari$"
-                    ] } ],
-                "from": {
-                  "key_code": "0",
-                  "modifiers": {
-                    "mandatory": [ "control" ]
-                  } },
-                "to": [
-                  { "key_code": "0",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              },
-              { "description": "Quit?: ^⇧Q ⌘Q",
-                "conditions": [
-                  { "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "^org\\.mozilla\\.firefox$",
-                      "^org\\.brave\\.Browser$",
-                      "^com\\.microsoft\\.Edge",
-                      "^com\\.google\\.Chrome$",
-                      "^com\\.apple\\.Safari$"
-                    ] } ],
-                "from": {
-                  "key_code": "q",
-                  "modifiers": {
-                    "mandatory": [ "control", "shift" ]
-                  } },
-                "to": [
-                  { "key_code": "q",
-                    "modifiers": [ "left_command" ]
-                  } ],
-                "type": "basic"
-              } ] },
+              }] },
           { "description": "Others",
             "manipulators": [
               { "description": "[Slack] nav.chats: ⌥{←,→} ⌘{[,]}",
