@@ -152,3 +152,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+fpath+=~/.zfunc
+autoload -Uz compinit && compinit
+
