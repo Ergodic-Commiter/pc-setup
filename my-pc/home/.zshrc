@@ -1,14 +1,12 @@
 # En orden: 
 # 0) Powerlevel10k prompt. 
 # 1) Minimal PATH y Locale
-# 3) Pyenv (antes que oh-my-zsh, conda)
-# 4) OhMyZSH
-# 5) UserConfig, Editor
-# 6) Conda (después de Pyenv)
-# 7) Package indexes/ PIP tweaks
-# 8) Homebrew (después de Pyenv)
-# 9) Completion system
-
+# 2) Pyenv (antes que oh-my-zsh, conda)
+# 3) OhMyZSH
+# 4) UserConfig, Editor
+# 5) Conda (después de Pyenv)
+# 6) Package indexes/ PIP tweaks
+# 7) Homebrew (después de Pyenv)
 
 
 # 0) Enable Powerlevel10k instant prompt. Casi hasta arriba.  
@@ -27,6 +25,7 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US:en
 
 typeset -U path fpath
+
 
 # 2) PYENV 
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -106,3 +105,7 @@ unset __conda_setup
 export PIP_TRUSTED_HOST="files.pythonhosted.org pypi.org pypi.python.org"
 export PATH="$PATH:/opt/homebrew/bin:/usr/local/bin"
 
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+zstyle ':completion:*' menu select
