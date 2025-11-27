@@ -1,5 +1,6 @@
 """Simple function to update TOMLs. 
 """
+# pylint: disable=import-error
 import sys
 
 from toml import load, dumps
