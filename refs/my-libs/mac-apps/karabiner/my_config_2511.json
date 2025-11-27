@@ -92,20 +92,14 @@
               { "description": "^⌘T iTerm",
                 "from": {
                   "key_code": "t",
-                  "modifiers": {
-                    "mandatory": [ "control", "left_command" ]
-                  } },
-                "to": [
-                  { "shell_command": "open -a iTerm" }
-                ],
+                  "modifiers": { "mandatory": [ "control", "left_command" ] } },
+                "to": [ { "shell_command": "open -a iTerm" } ],
                 "type": "basic"
               },
               { "description": "🪼🐭🖕🏻 Bitwarden",
                 "type": "mouse",
                 "from": { "pointing_button": "button3" },
-                "to": [
-                  { "shell_command": "open -a Bitwarden" }
-                ],
+                "to": [ { "shell_command": "open -a Bitwarden" } ],
                 "conditions": [
                   { "type": "device_if",
                     "vendor_id": 6421,
@@ -114,9 +108,9 @@
               { "description": "🐭🖕🏻 Disable",
                 "type": "basic",
                 "from": { "pointing_button": "button3" },
-                "to_if_alone": [
-                  { "key_code": "vk_none" }
-                ] } ] },
+                "to_if_alone": [ 
+                  { "key_code": "vk_none" 
+                  } ] } ] },
           { "description": "App control (non terminal)",
             "manipulators": [
               { "description": "Sel. All: ^A ⌘A",
@@ -124,8 +118,7 @@
                   { "type": "frontmost_application_unless",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
-                      "^com\\.googlecode\\.iterm2$",
-                      "^com\\.microsoft\\.VSCode$"
+                      "^com\\.googlecode\\.iterm2$"
                     ] } ],
                 "from": {
                   "key_code": "a",
@@ -147,9 +140,8 @@
                     ] } ],
                 "from": {
                   "key_code": "c",
-                  "modifiers": {
-                    "mandatory": [ "control" ]
-                  } },
+                  "modifiers": { 
+                    "mandatory": [ "control" ] } },
                 "to": [
                   { "key_code": "c",
                     "modifiers": [ "left_command" ]
@@ -238,9 +230,7 @@
                     ] } ],
                 "from": {
                   "key_code": "x",
-                  "modifiers": {
-                    "mandatory": [ "control" ]
-                  } },
+                  "modifiers": { "mandatory": [ "control" ] } },
                 "to": [
                   { "key_code": "x",
                     "modifiers": [ "left_command" ]
@@ -329,7 +319,7 @@
                 "from": {
                   "pointing_button": "button1",
                   "modifiers": {
-                    "mandatory": [ "control" ],
+                    "mandatory": [ "control" ], 
                     "optional": [ "any" ]
                   } },
                 "to": [
@@ -432,7 +422,7 @@
                     "modifiers": [ "command" ]
                   } ],
                 "type": "basic"
-              },
+              }, 
               { "description": "Nav(Sel). Word: R⌥↑ ⌘↑",
                 "conditions": [
                   { "type": "frontmost_application_unless",
@@ -819,7 +809,7 @@
                     "modifiers": [ "left_command" ]
                   } ],
                 "type": "basic"
-              },
+              } ,
               { "description": "Reload: ^⇧?R ⌘R",
                 "conditions": [
                   { "type": "frontmost_application_if",
@@ -1274,7 +1264,7 @@
                     "modifiers": [ "control" ]
                   } ],
                 "type": "basic"
-              } ] },
+              }] },
           { "description": "Others",
             "manipulators": [
               { "description": "[Slack] nav.chats: ⌥{←,→} ⌘{[,]}",
