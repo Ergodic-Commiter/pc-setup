@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Toggle Theme
+Exec=$HOME/.local/bin/toggle-colors.sh
+Icon=preferences-desktop-theme
+Terminal=false
+Categories=Utility;

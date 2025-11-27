@@ -1,0 +1,12 @@
+[Desktop Entry]
+Categories=Utility
+Comment[en_US]=Switch between light and dark themes
+Comment=Switch between light and dark themes
+Exec=/home/diego/.config/scripts/toggle-colors.sh
+Icon=color-mode-invert-image-symbolic
+Name[en_US]=Toggle Colors
+Name=Toggle Colors
+StartupNotify=true
+Terminal=false
+Type=Application
+X-KDE-SubstituteUID=false
