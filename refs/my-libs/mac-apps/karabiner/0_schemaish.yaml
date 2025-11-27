@@ -1,0 +1,21 @@
+root: 
+  - global ✅
+  - profiles: Dict[Profile]
+
+Profile: 
+  - name ✅
+  - selected ✅
+  - devices: List[Device]
+  - simple_modifications
+  - complex_modifications
+  - parameters ✅
+  - virtual_hid_keyboard ❔
+
+Device: 
+  - identifiers
+  - fn_function_keys
+  - ignore
+  - disable_built_in_keyboard_if_exists: optional
+  - manipulate_caps_lock_led: optional
+  - simple_modifications: optional
+  - treat_as_built_in_keyboard: optional

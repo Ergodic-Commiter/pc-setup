@@ -1,0 +1,1161 @@
+{ 
+  "global": {
+    "check_for_updates_on_startup": true,
+    "show_in_menu_bar": true,
+    "show_profile_name_in_menu_bar": false,
+    "unsafe_ui": false
+  },
+  "profiles": [
+    { "name": "Default profile",
+      "selected": true,
+      "devices": [
+        { "disable_built_in_keyboard_if_exists": false,
+          "fn_function_keys": [],
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": false,
+            "product_id": 835,
+            "vendor_id": 1452
+          },
+          "ignore": false,
+          "manipulate_caps_lock_led": true,
+          "simple_modifications": [],
+          "treat_as_built_in_keyboard": false
+        },
+        { "disable_built_in_keyboard_if_exists": false,
+          "fn_function_keys": [],
+          "identifiers": {
+            "is_keyboard": false,
+            "is_pointing_device": true,
+            "product_id": 835,
+            "vendor_id": 1452
+          },
+          "ignore": true,
+          "manipulate_caps_lock_led": false,
+          "simple_modifications": [],
+          "treat_as_built_in_keyboard": false
+        },
+        { "disable_built_in_keyboard_if_exists": false,
+          "fn_function_keys": [],
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": true,
+            "product_id": 24648,
+            "vendor_id": 6127
+          },
+          "ignore": false,
+          "manipulate_caps_lock_led": true,
+          "simple_modifications": [],
+          "treat_as_built_in_keyboard": false
+        } ],
+      "fn_function_keys": [
+        { "from": { "key_code": "f1" },
+          "to": [
+            { "key_code": "f1" }
+          ] },
+        { "from": { "key_code": "f2" },
+          "to": [
+            { "key_code": "f2" }
+          ] },
+        { "from": { "key_code": "f3" },
+          "to": [
+            { "key_code": "f3" }
+          ] },
+        { "from": { "key_code": "f4" },
+          "to": [
+            { "key_code": "f4" }
+          ] },
+        { "from": { "key_code": "f5" },
+          "to": [
+            { "key_code": "f5" }
+          ] },
+        { "from": { "key_code": "f6" },
+          "to": [
+            { "key_code": "f6" }
+          ] },
+        { "from": { "key_code": "f7" },
+          "to": [
+            { "key_code": "f7" }
+          ] },
+        { "from": { "key_code": "f8" },
+          "to": [
+            { "key_code": "f8" }
+          ] },
+        { "from": { "key_code": "f9" },
+          "to": [
+            { "key_code": "f9" }
+          ] },
+        { "from": { "key_code": "f10" },
+          "to": [
+            { "key_code": "f10" }
+          ] },
+        { "from": { "key_code": "f11" },
+          "to": [
+            { "key_code": "f11" }
+          ] },
+        { "from": { "key_code": "f12" },
+          "to": [
+            { "key_code": "f12" }
+          ] } ],
+      "simple_modifications": [
+        { "from": { "key_code": "caps_lock" },
+          "to": [
+            { "key_code": "left_control" }
+          ] } ],
+      "complex_modifications": {
+        "rules": [
+          { "description": "Typical application control",
+            "manipulators": [
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Ctrl+f",
+                "from": {
+                  "key_code": "f",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "f",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Ctrl+k",
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [ "control" ],
+                    "optional": [ "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "k",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Ctrl+backspace",
+                "from": {
+                  "key_code": "delete_or_backspace",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "delete_or_backspace",
+                    "modifiers": [ "left_alt" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Ctrl+left",
+                "from": {
+                  "key_code": "left_arrow",
+                  "modifiers": {
+                    "mandatory": [ "control" ],
+                    "optional": [ "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "left_arrow",
+                    "modifiers": [ "left_alt" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Ctrl+right",
+                "from": {
+                  "key_code": "right_arrow",
+                  "modifiers": {
+                    "mandatory": [ "control" ],
+                    "optional": [ "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "right_arrow",
+                    "modifiers": [ "left_alt" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Alt-Ctrl-1",
+                "from": {
+                  "key_code": "1",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "option"
+                    ] } },
+                "to": [
+                  { "key_code": "1",
+                    "modifiers": [
+                      "left_alt",
+                      "left_gui"
+                    ] } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Alt-Ctrl-2",
+                "from": {
+                  "key_code": "2",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "option"
+                    ] } },
+                "to": [
+                  { "key_code": "2",
+                    "modifiers": [
+                      "left_alt",
+                      "left_gui"
+                    ] } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Alt-Ctrl-3",
+                "from": {
+                  "key_code": "3",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "option"
+                    ] } },
+                "to": [
+                  { "key_code": "3",
+                    "modifiers": [
+                      "left_alt",
+                      "left_gui"
+                    ] } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Alt-Ctrl-4",
+                "from": {
+                  "key_code": "4",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "option"
+                    ] } },
+                "to": [
+                  { "key_code": "4",
+                    "modifiers": [
+                      "left_alt",
+                      "left_gui"
+                    ] } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Alt-Ctrl-0",
+                "from": {
+                  "key_code": "0",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "option"
+                    ] } },
+                "to": [
+                  { "key_code": "0",
+                    "modifiers": [
+                      "left_alt",
+                      "left_gui"
+                    ] } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Ctrl+w",
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "w",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Ctrl-+",
+                "from": {
+                  "key_code": "equal_sign",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "equal_sign",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Ctrl+-",
+                "from": {
+                  "key_code": "hyphen",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "hyphen",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Ctrl-r",
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "mandatory": [ "control" ],
+                    "optional": [ "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "r",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              } ] },
+          { "description": "GUI+l to Lock Screen (macOS 10.13+)",
+            "manipulators": [
+              { "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [ "left_gui" ]
+                  } },
+                "to": [
+                  { "key_code": "q",
+                    "modifiers": [
+                      "left_control",
+                      "left_gui"
+                    ] } ],
+                "type": "basic"
+              } ] },
+          { "description": "Alt+Tab as Switch Application",
+            "manipulators": [
+              { "from": {
+                  "key_code": "tab",
+                  "modifiers": {
+                    "mandatory": [ "option" ],
+                    "optional": [ "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "tab",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              } ] },
+          { "description": "Browser for PC keyboard",
+            "manipulators": [
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "End",
+                "from": {
+                  "key_code": "end",
+                  "modifiers": {
+                    "optional": [ "any" ]
+                  } },
+                "to": [
+                  { "key_code": "right_arrow",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Home",
+                "from": {
+                  "key_code": "home",
+                  "modifiers": {
+                    "optional": [ "any" ]
+                  } },
+                "to": [
+                  { "key_code": "left_arrow",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Use F12 to open Dev Tools (all browsers)",
+                "from": { "key_code": "f12" },
+                "to": [
+                  { "key_code": "i",
+                    "modifiers": [
+                      "option",
+                      "left_gui"
+                    ] } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Ctrl+l for Browsers",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "l",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Ctrl+t for Browsers",
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {
+                    "mandatory": [ "control" ],
+                    "optional": [ "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "t",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Alt-left for Browsers",
+                "from": {
+                  "key_code": "left_arrow",
+                  "modifiers": {
+                    "mandatory": [ "option" ]
+                  } },
+                "to": [
+                  { "key_code": "left_arrow",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Alt+right for Browsers",
+                "from": {
+                  "key_code": "right_arrow",
+                  "modifiers": {
+                    "mandatory": [ "left_alt" ]
+                  } },
+                "to": [
+                  { "key_code": "right_arrow",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Ctrl+p for Browsers",
+                "from": {
+                  "key_code": "p",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "p",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Ctrl+s for Browsers",
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "s",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Ctrl-i for Browsers",
+                "from": {
+                  "key_code": "i",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "i",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Ctrl-b for Browsers",
+                "from": {
+                  "key_code": "b",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "b",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "F11 for Browsers",
+                "from": { "key_code": "f11" },
+                "to": [
+                  { "key_code": "f",
+                    "modifiers": [
+                      "left_gui",
+                      "shift"
+                    ] } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Ctrl-u for Browsers",
+                "from": {
+                  "key_code": "u",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "u",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Ctrl+0 for Browsers",
+                "from": {
+                  "key_code": "0",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "0",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Ctrl+g for Browsers",
+                "from": {
+                  "key_code": "g",
+                  "modifiers": {
+                    "mandatory": [ "control" ],
+                    "optional": [ "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "g",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Ctrl+k for Browsers",
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "k",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Ctrl+shift+q for Browsers",
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "shift"
+                    ] } },
+                "to": [
+                  { "key_code": "q",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Ctrl+n for Browsers",
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "mandatory": [ "control" ],
+                    "optional": [ "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "n",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.nightly$",
+                      "^com\\.microsoft\\.Edge",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.apple\\.Safari$"
+                    ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Ctrl+d for Browsers",
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "mandatory": [ "control" ],
+                    "optional": [ "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "d",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              } ] },
+          { "description": "Windows edit shortcuts",
+            "manipulators": [
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Select All with Ctrl-a",
+                "from": {
+                  "key_code": "a",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "a",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "descriptio": "Redo with Ctrl-y",
+                "from": {
+                  "key_code": "y",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "z",
+                    "modifiers": [
+                      "left_gui",
+                      "shift"
+                    ] } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Cut with Ctrl-x",
+                "from": {
+                  "key_code": "x",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "x",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Paste with Ctrl-v",
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "v",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Undo with Ctrl-z",
+                "from": {
+                  "key_code": "z",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "z",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "description": "Copy Ctrl-c",
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  } },
+                "to": [
+                  { "key_code": "c",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              } ] },
+          { "description": "Terminal customization",
+            "manipulators": [
+              { "conditions": [
+                  { "bundle_identifiers": [ "^com\\.apple\\.Terminal$" ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "PgDn",
+                "from": { "key_code": "page_down" },
+                "to": [
+                  { "key_code": "page_down",
+                    "modifiers": [ "left_shift" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [ "^com\\.apple\\.Terminal$" ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "PgUp",
+                "from": { "key_code": "page_up" },
+                "to": [
+                  { "key_code": "page_up",
+                    "modifiers": [ "left_shift" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [ "^com\\.apple\\.Terminal$" ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Delete next word",
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "mandatory": [ "option" ]
+                  } },
+                "to": [
+                  { "key_code": "d",
+                    "modifiers": [ "left_alt" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [ "^com\\.apple\\.Terminal$" ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Previous word",
+                "from": {
+                  "key_code": "b",
+                  "modifiers": {
+                    "mandatory": [ "option" ]
+                  } },
+                "to": [
+                  { "key_code": "left_arrow",
+                    "modifiers": [ "left_alt" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [ "^com\\.apple\\.Terminal$" ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "description": "Next word",
+                "from": {
+                  "key_code": "f",
+                  "modifiers": {
+                    "mandatory": [ "option" ]
+                  } },
+                "to": [
+                  { "key_code": "right_arrow",
+                    "modifiers": [ "left_alt" ]
+                  } ],
+                "type": "basic"
+              } ] },
+          { "description": "Slack stuff",
+            "manipulators": [
+              { "conditions": [
+                  { "bundle_identifiers": [ "^com\\.tinyspeck\\.slackmacgap$" ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "from": {
+                  "key_code": "left_arrow",
+                  "modifiers": {
+                    "mandatory": [ "left_alt" ]
+                  } },
+                "to": [
+                  { "key_code": "open_bracket",
+                    "modifiers": [ "left_gui" ]
+                  } ],
+                "type": "basic"
+              },
+              { "conditions": [
+                  { "bundle_identifiers": [ "^com\\.tinyspeck\\.slackmacgap$" ],
+                    "type": "frontmost_application_if"
+                  } ],
+                "from": {
+                  "modifiers": {
+                    "mandatory": [ "left_alt" ]
+                  },
+                  "key_code": "right_arrow"
+                },
+                "to": [
+                  { "modifiers": [ "left_gui" ],
+                    "key_code": "close_bracket"
+                  } ],
+                "type": "basic"
+              } ] },
+          { "description": "Ctrl-click selects",
+            "manipulators": [
+              { "conditions": [
+                  { "bundle_identifiers": [
+                      "^org\\.gnu\\.Emacs$",
+                      "^com\\.jetbrains\\.intellij$",
+                      "^com\\.jetbrains\\.AppCode$",
+                      "^com\\.apple\\.Terminal$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  } ],
+                "from": {
+                  "modifiers": {
+                    "mandatory": [ "control" ]
+                  },
+                  "pointing_button": "button1"
+                },
+                "to": [
+                  { "modifiers": [ "left_gui" ],
+                    "pointing_button": "button1"
+                  } ],
+                "type": "basic"
+              } ] },
+          { "description": "Middle-button does nothing if alone",
+            "manipulators": [
+              { "from": { "pointing_button": "button3" },
+                "to_if_alone": [
+                  { "key_code": "vk_none" }
+                ],
+                "type": "basic"
+              } ] } ], 
+        "parameters": {
+          "basic.simultaneous_threshold_milliseconds": 50,
+          "basic.to_delayed_action_delay_milliseconds": 500,
+          "basic.to_if_alone_timeout_milliseconds": 1000,
+          "basic.to_if_held_down_threshold_milliseconds": 500,
+          "mouse_motion_to_scroll.speed": 100
+        } },
+      "parameters": {
+        "delay_milliseconds_before_open_device": 1000
+      },
+      "virtual_hid_keyboard": {
+        "country_code": 0,
+        "indicate_sticky_modifier_keys_state": true,
+        "mouse_key_xy_scale": 100
+      } } ] }

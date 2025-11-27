@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.user.displayplacer.wake</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/bin/displayplacer</string>
+    <string>id:37D8832A-2D66-02CA-B9F7-8F30A301B230</string>
+    <string>res:1352x878</string>
+    <string>hz:120</string>
+    <string>color_depth:8</string>
+    <string>enabled:true</string>
+    <string>scaling:on</string>
+    <string>origin:(0,0)</string>
+    <string>degree:0</string>
+    <string>id:079E6536-F1A2-40EA-B33D-CC082D66791A</string>
+    <string>res:1920x1080</string>
+    <string>hz:60</string>
+    <string>color_depth:8</string>
+    <string>enabled:true</string>
+    <string>scaling:off</string>
+    <string>origin:(1352,-98)</string>
+    <string>degree:0</string>
+  </array>
+
+  <key>StartCalendarInterval</key>
+  <dict/>
+  <key>StartOnMount</key>
+  <true/>
+  <key>WatchPaths</key>
+  <array>
+    <string>/tmp/.com.apple.dock.wake</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <false/>
+</dict>
+</plist>
