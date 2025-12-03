@@ -338,7 +338,7 @@
                   } ],
                 "type": "basic"
               },
-              { "description": "Nav(Sel). Word: ^⇧?[←→] ⌥[←→]",
+              { "description": "Nav(Sel). Word: L^⇧?[←→] ⌥[←→]",
                 "conditions": [
                   { "type": "frontmost_application_unless",
                     "bundle_identifiers": [
@@ -357,7 +357,7 @@
                   } ],
                 "type": "basic"
               },
-              { "description": "Nav(Sel). Word: ^⇧?[←→] ⌥[←→]",
+              { "description": "Nav(Sel). Word: R^⇧?[←→] ⌥[←→]",
                 "conditions": [
                   { "type": "frontmost_application_unless",
                     "bundle_identifiers": [

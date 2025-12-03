@@ -24,7 +24,7 @@ export PATH=$HOME/.local/bin:$PATH
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US:en
 
-typeset -U path fpath
+typeset -U path fpath3
 
 
 # 2) PYENV 

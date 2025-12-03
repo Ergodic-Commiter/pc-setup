@@ -2,7 +2,7 @@
 # set -U tide_os_icon ""
 set -U tide_os_icon "󰈺"
 set -U tide_time_format "%I:%M %p "
-set -U tide_git_branch_icon ""
+set -U tide_git_icon ""
 
 set -U tide_python_format '{name} {icon}'
 #set -U tide_python_version_name_only true
