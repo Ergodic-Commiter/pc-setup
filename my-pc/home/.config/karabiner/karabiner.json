@@ -470,6 +470,28 @@
                   } ],
                 "type": "basic"
               },
+              { "description": "Home → ⌘← (line start)",
+                "type": "basic",
+                "from": {
+                  "key_code": "home",
+                  "modifiers": {
+                    "optional": [ "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "left_arrow",
+                    "modifiers": [ "left_command" ]
+                  } ] },
+              { "description": "End → ⌘→ (line end)",
+                "type": "basic",
+                "from": {
+                  "key_code": "end",
+                  "modifiers": {
+                    "optional": [ "shift" ]
+                  } },
+                "to": [
+                  { "key_code": "right_arrow",
+                    "modifiers": [ "left_command" ]
+                  } ] },
               { "description": "^⌥0 ⌥⌘0",
                 "conditions": [
                   { "type": "frontmost_application_unless",
@@ -756,7 +778,7 @@
                   } ],
                 "type": "basic"
               },
-              { "description": "New winow: ^⇧?N ⌘N",
+              { "description": "New window: ^⇧?N ⌘N",
                 "conditions": [
                   { "type": "frontmost_application_if",
                     "bundle_identifiers": [

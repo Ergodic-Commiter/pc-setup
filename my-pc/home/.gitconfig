@@ -18,3 +18,5 @@
 	insteadOf = devops:
 [pull]
 	rebase = true
+[fetch]
+	prune = true

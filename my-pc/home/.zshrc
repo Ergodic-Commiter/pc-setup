@@ -30,7 +30,8 @@ typeset -U path fpath3
 # 2) PYENV 
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# Este comando es para autoactivar ambientes con `cd proyecto`
+# eval "$(pyenv virtualenv-init -)"
 
 
 ## 3) OhMyZsh
@@ -86,18 +87,18 @@ fi
 ## 6) Anaconda. 
 # >>> conda initialize >>>
 # $HOME/Code/Programs/anaconda3
-AT_CONDA="/opt/anaconda3"
-__conda_setup="$("${AT_CONDA}/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-  eval "$__conda_setup"
-else
-  if [ -f "${AT_CONDA}/etc/profile.d/conda.sh" ]; then
-    . "${AT_CONDA}/etc/profile.d/conda.sh"
-  else
-    export PATH="${AT_CONDA}/bin:$PATH"
-  fi
-fi
-unset __conda_setup
+# AT_CONDA="/opt/anaconda3"
+# __conda_setup="$("${AT_CONDA}/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#   eval "$__conda_setup"
+# else
+#   if [ -f "${AT_CONDA}/etc/profile.d/conda.sh" ]; then
+#     . "${AT_CONDA}/etc/profile.d/conda.sh"
+#   else
+#     export PATH="${AT_CONDA}/bin:$PATH"
+#   fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
 
 

@@ -2,10 +2,11 @@
 
 # Run only in interactive shells
 if not status is-interactive
-    exit
+    return # antes: `exit`
 end
 
 #1 Path y Locale
+fish_add_path /opt/homebrew/bin
 fish_add_path $HOME/.local/bin
 
 set -gx LANG en_US.UTF-8
@@ -15,9 +16,8 @@ set -gx LANGUAGE en_US:en
 #2 PYENV
 set -gx PYENV_ROOT $HOME/.pyenv
 fish_add_path $PYENV_ROOT/bin
-
 pyenv init - | source
-pyenv virtualenv-init - | source
+# pyenv virtualenv-init - | source
 
 
 #3 Editor
@@ -32,3 +32,7 @@ end
 if test -f $HOME/.aliases.fish
     source $HOME/.aliases.fish
 end
+
+
+#5 direnv
+direnv hook fish | source
