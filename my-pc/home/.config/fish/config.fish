@@ -34,5 +34,5 @@ if test -f $HOME/.aliases.fish
 end
 
 
-#5 direnv
+#5 Direnv (virtual env handled by poetry instead of pyenv)
 direnv hook fish | source
