@@ -36,8 +36,8 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 " filetype plugin on
 
-autocmd FileType c call tagbar#autoopen(O)      "Tagbar for C
-autocmd FileType python call tagbar#autoopen(O) "Tagbar for Python
+autocmd FileType c call tagbar#autoopen(0)      "Tagbar for C
+autocmd FileType python call tagbar#autoopen(0) "Tagbar for Python
 set laststatus=2                        " StatusBar: optional
 set statusline=%{FugitiveStatusline()}  " Status: git (branch)
 

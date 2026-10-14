@@ -1,21 +1,49 @@
-# https://stackoverflow.com/questions/55456507/how-to-change-ipython-shell-text-literal-color-windows-powershell
-from pygments.token import Token   # linea: 674
-
-# Configuration file for ipython.
+#pylint: disable=line-too-long
+#pylint: disable=too-many-lines
+#pylint: disable=trailing-whitespace
+#pylint: disable=undefined-variable
 
 c = get_config()  #noqa
+
+## Shortcut style to use at the prompt. 'vi' or 'emacs'. Default: 'emacs'
+c.TerminalInteractiveShell.editing_mode = 'vi'
+
+## Display the current vi mode (when using vi editing mode). Default: True
+c.TerminalInteractiveShell.prompt_includes_vi_mode = True
+
+## Set the editor used by IPython (default to $EDITOR/vi/notepad).
+c.TerminalInteractiveShell.editor = 'vim'
+
+## Add shortcuts from 'emacs' insert mode to 'vi' insert mode.  Default: True
+c.TerminalInteractiveShell.emacs_bindings_in_vi_insert_mode = False
+
+## Enable mouse support in the prompt   Default: False
+#  (Note: prevents selecting text with the mouse)
+c.TerminalInteractiveShell.mouse_support = False 
+
+## Set the color scheme (NoColor, Neutral, Linux, or LightBG).  Default: 'Neutral'
+#  Choices: any of ['Neutral', 'NoColor', 'LightBG', 'Linux'] (case-insensitive)
+c.InteractiveShell.colors = 'Linux'
+
+## DX: Agregué esta nueva opción que no existía.  2026/09/02 Ya no funciona
+# c.TerminalInteractiveShell.prompt = r'({sys.executable.split("envs/")[-1][:-1]}) In [\#]: '
+
+# https://stackoverflow.com/questions/55456507/how-to-change-ipython-shell-text-literal-color-windows-powershell
+## Override highlighting format for specific tokens. Default: {}
+# c.TerminalInteractiveShell.highlighting_style_overrides = {Token.String: '#ff0000'}
+
 
 #------------------------------------------------------------------------------
 # InteractiveShellApp(Configurable) configuration
 #------------------------------------------------------------------------------
 ## A Mixin for applications that start InteractiveShell instances.
-#  
+#
 #      Provides configurables for loading extensions and executing files
 #      as part of configuring a Shell environment.
-#  
+#
 #      The following methods should be called by the :meth:`initialize` method
 #      of the subclass:
-#  
+#
 #        - :meth:`init_path`
 #        - :meth:`init_shell` (to be implemented by the subclass)
 #        - :meth:`init_gui_pylab`
@@ -439,11 +467,6 @@ c = get_config()  #noqa
 #  Default: True
 # c.InteractiveShell.color_info = True
 
-## Set the color scheme (NoColor, Neutral, Linux, or LightBG).
-#  Choices: any of ['Neutral', 'NoColor', 'LightBG', 'Linux'] (case-insensitive)
-#  Default: 'Neutral'
-# c.InteractiveShell.colors = 'Neutral'
-
 #  Default: False
 # c.InteractiveShell.debug = False
 
@@ -628,23 +651,11 @@ c = get_config()  #noqa
 #  See also: InteractiveShell.display_page
 # c.TerminalInteractiveShell.display_page = False
 
-## Shortcut style to use at the prompt. 'vi' or 'emacs'.
-#  Default: 'emacs'
-c.TerminalInteractiveShell.editing_mode = 'vi'
-
-## Set the editor used by IPython (default to $EDITOR/vi/notepad).
-#  Default: 'notepad'
-c.TerminalInteractiveShell.editor = 'vim'
-
-## Add shortcuts from 'emacs' insert mode to 'vi' insert mode.
-#  Default: True
-c.TerminalInteractiveShell.emacs_bindings_in_vi_insert_mode = False
-
 ## Allows to enable/disable the prompt toolkit history search
 #  Default: True
 # c.TerminalInteractiveShell.enable_history_search = True
 
-## 
+##
 #  See also: InteractiveShell.enable_html_pager
 # c.TerminalInteractiveShell.enable_html_pager = False
 
@@ -667,10 +678,6 @@ c.TerminalInteractiveShell.emacs_bindings_in_vi_insert_mode = False
 #          highlighting. To see available styles, run `pygmentize -L styles`.
 #  Default: traitlets.Undefined
 # c.TerminalInteractiveShell.highlighting_style = traitlets.Undefined
-
-## Override highlighting format for specific tokens
-#  Default: {}
-c.TerminalInteractiveShell.highlighting_style_overrides = {Token.String: '#ff0000'}
 
 ## Total length of command history
 #  See also: InteractiveShell.history_length
@@ -712,26 +719,12 @@ c.TerminalInteractiveShell.highlighting_style_overrides = {Token.String: '#ff000
 #  Default: True
 # c.TerminalInteractiveShell.modal_cursor = True
 
-## Enable mouse support in the prompt (Note: prevents selecting text with the
-#  mouse)
-#  Default: False
-c.TerminalInteractiveShell.mouse_support = True
-
 #  See also: InteractiveShell.object_info_string_level
 # c.TerminalInteractiveShell.object_info_string_level = 0
 
-## 
+##
 #  See also: InteractiveShell.pdb
 # c.TerminalInteractiveShell.pdb = False
-
-
-## DX: Agregué esta nueva opción que no existía.
-c.TerminalInteractiveShell.prompt = '({sys.executable.split("envs/")[-1][:-1]}) In [\#]: '
-
-
-## Display the current vi mode (when using vi editing mode).
-#  Default: True
-c.TerminalInteractiveShell.prompt_includes_vi_mode = True
 
 ## Class used to generate Prompt token for prompt_toolkit
 #  Default: 'IPython.terminal.prompts.Prompts'
@@ -1245,7 +1238,6 @@ c.TerminalInteractiveShell.prompt_includes_vi_mode = True
 #  
 #      Provides the %store magic.
 
-## If True, any %store-d variables will be automatically restored
-#          when IPython starts.
+## If True, any %store-d variables will be automatically restored when IPython starts.
 #  Default: False
 # c.StoreMagics.autorestore = False
